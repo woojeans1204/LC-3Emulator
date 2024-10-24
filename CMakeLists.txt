@@ -14,8 +14,8 @@ file(GLOB_RECURSE SRC_FILES src/*.cpp)
 
 # Executable & Library
 add_library(LC3AssemblerSimulator STATIC ${SRC_FILES})
-add_executable(LC3SimulatorMain src/main.cpp)
+#add_executable(LC3SimulatorMain src/main.cpp)
 
-target_link_libraries(LC3SimulatorMain PRIVATE LC3AssemblerSimulator)
+#target_link_libraries(LC3SimulatorMain PRIVATE LC3AssemblerSimulator)
 # Add testing
-#add_subdirectory(tests)
+add_subdirectory(tests)

@@ -1,4 +1,5 @@
 C:/Users/awj12/OneDrive/바탕 화면/대학교/GitHub/LC-3Emulator/build/CMakeFiles/LC3AssemblerSimulator.dir
-C:/Users/awj12/OneDrive/바탕 화면/대학교/GitHub/LC-3Emulator/build/CMakeFiles/LC3SimulatorMain.dir
 C:/Users/awj12/OneDrive/바탕 화면/대학교/GitHub/LC-3Emulator/build/CMakeFiles/ALL_BUILD.dir
 C:/Users/awj12/OneDrive/바탕 화면/대학교/GitHub/LC-3Emulator/build/CMakeFiles/ZERO_CHECK.dir
+C:/Users/awj12/OneDrive/바탕 화면/대학교/GitHub/LC-3Emulator/build/tests/CMakeFiles/TestSymbolTable.dir
+C:/Users/awj12/OneDrive/바탕 화면/대학교/GitHub/LC-3Emulator/build/tests/CMakeFiles/TestParser.dir

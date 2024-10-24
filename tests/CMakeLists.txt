@@ -1,15 +1,8 @@
-
 # tests/CMakeLists.txt
-file(GLOB TEST_SRC_FILES *.cpp)
+# Define a test executable for SymbolTable
+add_executable(TestSymbolTable TestSymbolTable.cpp)
+target_link_libraries(TestSymbolTable PRIVATE LC3AssemblerSimulator)
 
-# Executable for tests
-add_executable(RunTests ${TEST_SRC_FILES})
-
-# Link with main project
-target_link_libraries(RunTests LC3AssemblerSimulator)
-
-# Define a custom target to run tests
-add_custom_target(run_tests
-    COMMAND RunTests
-    DEPENDS RunTests
-)
+# Define a test executable for Parser
+add_executable(TestParser TestParser.cpp)
+target_link_libraries(TestParser PRIVATE LC3AssemblerSimulator)

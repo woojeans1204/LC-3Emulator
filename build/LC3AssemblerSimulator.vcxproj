@@ -285,6 +285,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\src\Assembler\Parser.cpp" />
+    <ClCompile Include="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\src\Assembler\SymbolTable.cpp" />
     <ClCompile Include="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\src\Assembler\keyword.cpp" />
     <ClCompile Include="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\src\main.cpp" />
   </ItemGroup>
