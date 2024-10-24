@@ -67,10 +67,10 @@ namespace Assembler
         return result;
     }
 
-    Parser::Parser(const std::string &sourceCode, SymbolTable &symTable)
-        : currentLine(0), symbolTable(symTable)
+    Parser::Parser(SymbolTable &symTable)
+        : currentLine(), symbolTable(symTable)
     {
-        parseSource(sourceCode);
+        initLine();
     }
 
     bool Parser::hasNext() const
@@ -85,6 +85,11 @@ namespace Assembler
             throw std::out_of_range("No more lines to parse.");
         }
         return lines[currentLine++];
+    }
+
+    void Parser::initLine()
+    {
+        currentLine = 0;
     }
 
     void Parser::parseSource(const std::string &sourceCode)
@@ -229,6 +234,30 @@ namespace Assembler
         {
             // 현재는 무시하거나 에러를 던질 수 있습니다.
             // 여기서는 무시하도록 합니다.
+        }
+    }
+
+    ParsedLine Parser::searchLine(size_t t)
+    {
+        if (t < lines.size())
+            return lines[t];
+        else
+            throw(std::out_of_range("there is no " + std::to_string(t) + "th line"));
+    }
+
+    void Parser::printLines()
+    {
+        while (hasNext())
+        {
+            Assembler::ParsedLine line = getNext();
+            std::cout << "Labels: ";
+            for (const auto &label : line.labels)
+                std::cout << label << " ";
+            std::cout << "\nOpcode: " << line.opcode << std::endl;
+            std::cout << "Operands: ";
+            for (const auto &operand : line.operands)
+                std::cout << operand << " ";
+            std::cout << "\n---\n";
         }
     }
 

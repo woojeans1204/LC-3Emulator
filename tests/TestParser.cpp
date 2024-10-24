@@ -19,7 +19,8 @@ void testSingleLabelAndCommand()
 {
     std::string sourceCode = "START ADD R1, R2, R3";
     SymbolTable symTable;
-    Parser parser(sourceCode, symTable);
+    Parser parser(symTable);
+    parser.parseSource(sourceCode);
 
     assert(parser.hasNext() && "Parser should have next line.");
     ParsedLine line = parser.getNext();
@@ -35,7 +36,8 @@ void testMultipleLabelsAndCommand()
 {
     std::string sourceCode = "LOOP1 LOOP2 ADD R4, R5, R6";
     SymbolTable symTable;
-    Parser parser(sourceCode, symTable);
+    Parser parser(symTable);
+    parser.parseSource(sourceCode);
 
     assert(parser.hasNext() && "Parser should have next line.");
     ParsedLine line = parser.getNext();
@@ -51,7 +53,8 @@ void testLabelOnlyLine()
 {
     std::string sourceCode = "LABEL_ONLY\nADD R1, R2, R3";
     SymbolTable symTable;
-    Parser parser(sourceCode, symTable);
+    Parser parser(symTable);
+    parser.parseSource(sourceCode);
 
     // 첫 번째 라인: 라벨만 있는 경우
     assert(parser.hasNext() && "Parser should have first line.");
@@ -62,7 +65,8 @@ void testLabelOnlyLine()
 
     // 두 번째 라인: 명령어와 라벨 연계
     assert(parser.hasNext() && "Parser should have second line.");
-    ParsedLine secondLine = parser.getNext();
+    parser.getNext();
+    ParsedLine secondLine = parser.searchLine(1);
     assert(secondLine.labels.empty() && "Second line should have no label.");
     assert(secondLine.opcode == "ADD" && "Opcode should be 'ADD'.");
     assert(secondLine.operands.size() == 3 && "There should be 3 operands.");
@@ -79,7 +83,8 @@ void testDuplicateLabel()
     {
         std::string sourceCode = "DUP_LABEL ADD R1, R2, R3\nDUP_LABEL SUB R4, R5, R6";
         SymbolTable symTable;
-        Parser parser(sourceCode, symTable);
+        Parser parser(symTable);
+        parser.parseSource(sourceCode);
         ParsedLine firstLine = parser.getNext();
         ParsedLine secondLine = parser.getNext();
     }
@@ -95,7 +100,8 @@ void testInvalidOpcode()
     SymbolTable symTable;
     try
     {
-        Parser parser(sourceCode, symTable);
+        Parser parser(symTable);
+        parser.parseSource(sourceCode);
         ParsedLine line = parser.getNext();
     }
     catch (const std::invalid_argument &e)
@@ -114,7 +120,8 @@ void testOperandCountVerification()
     // 여기서는 단순히 오퍼랜드 수가 맞는지 확인합니다.
     std::string sourceCode = "ADD R1, R2"; // 부족한 오퍼랜드
     SymbolTable symTable;
-    Parser parser(sourceCode, symTable);
+    Parser parser(symTable);
+    parser.parseSource(sourceCode);
 
     try
     {
@@ -136,7 +143,8 @@ void testMultipleLabelsSameLine()
 {
     std::string sourceCode = "LABEL1 LABEL2 LABEL3 ADD R4, R5, R6";
     SymbolTable symTable;
-    Parser parser(sourceCode, symTable);
+    Parser parser(symTable);
+    parser.parseSource(sourceCode);
 
     assert(parser.hasNext() && "Parser should have line.");
     ParsedLine line = parser.getNext();

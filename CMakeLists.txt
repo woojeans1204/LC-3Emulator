@@ -10,7 +10,7 @@ include_directories(include)
 # Source files
 file(GLOB_RECURSE SRC_FILES src/*.cpp)
 # main은 빼고
-#list(REMOVE_ITEM SRC_FILES ${CMAKE_SOURCE_DIR}/src/main.cpp)
+list(REMOVE_ITEM SRC_FILES ${CMAKE_SOURCE_DIR}/src/main.cpp)
 
 # Executable & Library
 add_library(LC3AssemblerSimulator STATIC ${SRC_FILES})

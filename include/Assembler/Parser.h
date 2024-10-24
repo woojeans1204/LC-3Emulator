@@ -18,15 +18,18 @@ namespace Assembler
     class Parser
     {
     public:
-        Parser(const std::string &sourceCode, SymbolTable &symTable);
+        Parser(SymbolTable &symTable);
         bool hasNext() const;
         ParsedLine getNext();
+        void initLine();
+        ParsedLine searchLine(size_t t);
+        void parseSource(const std::string &sourceCode);
+        void printLines();
 
     private:
         std::vector<ParsedLine> lines;
         size_t currentLine;
         SymbolTable &symbolTable;
-        void parseSource(const std::string &sourceCode);
     };
 
 } // namespace Assembler

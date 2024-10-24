@@ -174,6 +174,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
+    <ProjectReference Include="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\build\tests\TestAssembler.vcxproj">
+      <Project>{E75316CA-0C8E-30ED-8BC6-924A853068E5}</Project>
+      <Name>TestAssembler</Name>
+    </ProjectReference>
     <ProjectReference Include="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\build\tests\TestInstructionSet.vcxproj">
       <Project>{7FC0AE3E-BD40-3C97-B02C-626EE0BA9190}</Project>
       <Name>TestInstructionSet</Name>
