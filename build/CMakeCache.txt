@@ -194,6 +194,15 @@ LC3AssemblerSimulator_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 LC3AssemblerSimulator_SOURCE_DIR:STATIC=C:/Users/awj12/OneDrive/바탕 화면/대학교/GitHub/LC-3Emulator
 
+//Value Computed by CMake
+LC3AssemblerTests_BINARY_DIR:STATIC=C:/Users/awj12/OneDrive/바탕 화면/대학교/GitHub/LC-3Emulator/build/tests
+
+//Value Computed by CMake
+LC3AssemblerTests_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+LC3AssemblerTests_SOURCE_DIR:STATIC=C:/Users/awj12/OneDrive/바탕 화면/대학교/GitHub/LC-3Emulator/tests
+
 
 ########################
 # INTERNAL cache entries
