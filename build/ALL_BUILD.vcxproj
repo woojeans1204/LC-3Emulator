@@ -178,6 +178,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Project>{66B45EA1-20E8-32BE-BF98-F029A93DA148}</Project>
       <Name>LC3AssemblerSimulator</Name>
     </ProjectReference>
+    <ProjectReference Include="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\build\tests\TestInstructionSet.vcxproj">
+      <Project>{7FC0AE3E-BD40-3C97-B02C-626EE0BA9190}</Project>
+      <Name>TestInstructionSet</Name>
+    </ProjectReference>
     <ProjectReference Include="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\build\tests\TestParser.vcxproj">
       <Project>{60091F58-FB98-3A9C-AAFD-9955B7614964}</Project>
       <Name>TestParser</Name>
