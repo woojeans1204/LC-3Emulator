@@ -7,7 +7,7 @@
 #include <iostream>
 #include "Parser.h"
 #include "SymbolTable.h"
-#include "InstructionSet.h"
+#include "Encoder.h"
 
 namespace Assembler
 {

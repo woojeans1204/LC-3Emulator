@@ -1,4 +1,4 @@
-// include/Assembler/InstructionSet.h
+// include/Assembler/Encoder.h
 #pragma once
 
 #include <string>

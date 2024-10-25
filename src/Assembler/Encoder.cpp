@@ -1,5 +1,5 @@
-// src/Assembler/InstructionSet.cpp
-#include "Assembler/InstructionSet.h"
+// src/Assembler/Encoder.cpp
+#include "Assembler/Encoder.h"
 #include <iostream>
 
 namespace Assembler

@@ -145,6 +145,7 @@ void testMultipleLabelsSameLine()
     SymbolTable symTable;
     Parser parser(symTable);
     parser.parseSource(sourceCode);
+    parser.printLines();
 
     assert(parser.hasNext() && "Parser should have line.");
     ParsedLine line = parser.getNext();
@@ -157,6 +158,12 @@ void testMultipleLabelsSameLine()
 
 int main()
 {
+    SymbolTable s;
+    std::string sourceCode = "LABEL1 ADD R4, R5, R6\n.ORIG x3000";
+    Parser p(s);
+    p.parseSource(sourceCode);
+    p.printLines();
+
     std::cout << "Running Parser Tests...\n";
     testSingleLabelAndCommand();
     testMultipleLabelsAndCommand();
