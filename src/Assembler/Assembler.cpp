@@ -14,7 +14,7 @@ namespace Assembler
         firstPass(inputFilePath);
 
         // 2차 패스: 명령어 인코딩 및 출력 파일 생성
-        secondPass(inputFilePath, outputFilePath);
+        secondPass(outputFilePath);
     }
 
     void Assembler::firstPass(const std::string &inputFilePath)
@@ -38,206 +38,183 @@ namespace Assembler
 
     // 항상 firstPass가 실행됨을 전제로 한다
     // symTable, parser의 정보를 가지고 소스코드를 기계어로 번역
-    void Assembler::secondPass(const std::string &inputFilePath, const std::string &outputFilePath)
+    void Assembler::secondPass(const std::string &outputFilePath)
     {
-        std::ifstream inputFile(inputFilePath);
-        if (!inputFile.is_open())
-        {
-            throw std::runtime_error("Failed to open input file: " + inputFilePath);
-        }
-        std::string line;
-        int currentAddress = 0;
-
         std::ofstream outputFile(outputFilePath, std::ios::binary);
         if (!outputFile.is_open())
         {
             throw std::runtime_error("Failed to open output file: " + outputFilePath);
         }
 
-        ParsedLine currentParsedLine;
+        int currentAddress = 0;
+        ParsedLine currentParsed;
         size_t currentLine = 0;
         parser.initLine();
+        bool hasAddress = false;
+
         while (parser.hasNext())
         {
-            currentParsedLine = parser.getNext();
-            if (!parsed.opcode.empty())
+            currentParsed = parser.getNext();
+            if (!currentParsed.opcode.empty())
             {
-                if (parsed.opcode == ".ORIG")
+                if (!hasAddress && currentParsed.opcode != ".ORIG")
+                    throw std::runtime_error("cannot found address");
+                if (currentParsed.opcode == ".ORIG")
                 {
-                    std::string operand = parsed.operands[0];
-                    int origAddress = std::stoi(operand.substr(1), nullptr, 16);
-                    currentAddress = origAddress;
+                    if (hasAddress)
+                        throw std::runtime_error(".END should come first");
+                    std::string operand = currentParsed.operands[0];
+                    hasAddress = true;
+                    if (operand[0] == 'x' || operand[0] == 'X')
+                        currentAddress = std::stoi(operand.substr(1), nullptr, 16);
+                    else
+                        currentAddress = std::stoi(operand);
+                    unsigned short machineCode = static_cast<unsigned short>(currentAddress & 0xFFFF);
+                    outputFile.write(reinterpret_cast<char *>(&machineCode), sizeof(unsigned short));
                 }
-                else if (parsed.opcode == ".END")
+                else if (currentParsed.opcode == ".END")
                 {
-                    break; // 어셈블링 종료
+                    hasAddress = false;
                 }
-                else if (parsed.opcode == ".FILL")
+                else if (currentParsed.opcode == ".FILL")
                 {
-                    if (parsed.operands.size() != 1)
+                    if (currentParsed.operands.size() != 1)
                     {
                         throw std::invalid_argument("'.FILL' requires exactly one operand.");
                     }
-                    std::string operand = parsed.operands[0];
+                    std::string operand = currentParsed.operands[0];
                     int value;
-                    if (operand.size() >= 2 && (operand[0] == 'x' || operand[0] == 'X'))
-                    {
+                    if (operand[0] == 'x' || operand[0] == 'X')
                         value = std::stoi(operand.substr(1), nullptr, 16);
-                    }
                     else
-                    {
-                        value = std::stoi(operand, nullptr, 10);
-                    }
+                        value = std::stoi(operand);
+
                     unsigned short machineCode = static_cast<unsigned short>(value & 0xFFFF);
                     outputFile.write(reinterpret_cast<char *>(&machineCode), sizeof(unsigned short));
                     currentAddress += 1;
                 }
-                else if (parsed.opcode == ".BLKW")
+                else if (currentParsed.opcode == ".BLKW")
                 {
-                    if (parsed.operands.size() != 1)
+                    if (currentParsed.operands.size() != 1)
                     {
                         throw std::invalid_argument("'.BLKW' requires exactly one operand.");
                     }
-                    int numWords = std::stoi(parsed.operands[0]);
+                    std::string operand = currentParsed.operands[0];
+                    int numWords;
+                    if (operand[0] == 'x' || operand[0] == 'X')
+                        numWords = std::stoi(operand.substr(1), nullptr, 16);
+                    else
+                        numWords = std::stoi(operand);
+
                     for (int i = 0; i < numWords; ++i)
                     {
                         unsigned short machineCode = 0;
                         outputFile.write(reinterpret_cast<char *>(&machineCode), sizeof(unsigned short));
+                        currentAddress++;
                     }
-                    currentAddress += numWords;
                 }
-                else if (parsed.opcode == ".STRINGZ")
+                else if (currentParsed.opcode == ".STRINGZ")
                 {
-                    if (parsed.operands.size() != 1)
+                    if (currentParsed.operands.size() != 1)
                     {
                         throw std::invalid_argument("'.STRINGZ' requires exactly one operand.");
                     }
-                    std::string str = parsed.operands[0];
+                    std::string str = currentParsed.operands[0];
                     for (char c : str)
                     {
                         unsigned short machineCode = static_cast<unsigned short>(c);
                         outputFile.write(reinterpret_cast<char *>(&machineCode), sizeof(unsigned short));
+                        currentAddress++;
                     }
                     // Null terminator
                     unsigned short nullTerm = 0;
                     outputFile.write(reinterpret_cast<char *>(&nullTerm), sizeof(unsigned short));
-                    currentAddress += str.size() + 1;
+                    currentAddress++;
                 }
                 else
                 {
                     // 명령어 인코딩
-                    unsigned short machineCode = 0;
-                    if (parsed.opcode == "HALT")
+                    unsigned short machineCode;
+
+                    // Instruction encoding
+                    // 예를 들어, ADD R1, R2, R3
+                    // 이 부분은 Opcode에 따라 다르게 처리
+                    // 간단히 명령어 이름으로 구분
+                    std::string opcode = currentParsed.opcode;
+                    if (opcode == "ADD")
                     {
-                        // HALT은 TRAP x25로 인코딩
-                        // TRAP x25 = 1111 0000 0010 0101 = 0xF025
-                        machineCode = 0xF025;
-                    }
-                    else
-                    {
-                        // Instruction encoding
-                        // 예를 들어, ADD R1, R2, R3
-                        // 이 부분은 Opcode에 따라 다르게 처리
-                        // 간단히 명령어 이름으로 구분
-                        std::string opcode = parsed.opcode;
-                        if (opcode == "ADD")
+                        if (currentParsed.operands.size() != 3)
                         {
-                            if (parsed.operands.size() != 3)
-                            {
-                                throw std::invalid_argument("ADD requires exactly 3 operands.");
-                            }
-                            std::string dr = parsed.operands[0];
-                            std::string sr1 = parsed.operands[1];
-                            std::string operand3 = parsed.operands[2];
-                            // Check if operand3 is a register or immediate
-                            if (operand3[0] == 'R' || operand3[0] == 'r')
-                            {
-                                std::string sr2 = operand3;
-                                machineCode = instrSet.encodeAddRegister(dr, sr1, sr2);
-                            }
-                            else if (operand3[0] == '#')
-                            {
-                                int imm5 = std::stoi(operand3.substr(1));
-                                machineCode = instrSet.encodeAddImmediate(dr, sr1, imm5);
-                            }
-                            else
-                            {
-                                throw std::invalid_argument("Invalid operand for ADD: " + operand3);
-                            }
+                            throw std::invalid_argument("ADD requires exactly 3 operands.");
                         }
-                        else if (opcode == "AND")
+                        std::string dr = currentParsed.operands[0];
+                        std::string sr1 = currentParsed.operands[1];
+                        std::string operand3 = currentParsed.operands[2];
+                        // Check if operand3 is a register or immediate
+                        if (operand3[0] == 'R' || operand3[0] == 'r')
                         {
-                            if (parsed.operands.size() != 3)
-                            {
-                                throw std::invalid_argument("AND requires exactly 3 operands.");
-                            }
-                            std::string dr = parsed.operands[0];
-                            std::string sr1 = parsed.operands[1];
-                            std::string operand3 = parsed.operands[2];
-                            if (operand3[0] == 'R' || operand3[0] == 'r')
-                            {
-                                std::string sr2 = operand3;
-                                machineCode = instrSet.encodeAndRegister(dr, sr1, sr2);
-                            }
-                            else if (operand3[0] == '#')
-                            {
-                                int imm5 = std::stoi(operand3.substr(1));
-                                machineCode = instrSet.encodeAndImmediate(dr, sr1, imm5);
-                            }
-                            else
-                            {
-                                throw std::invalid_argument("Invalid operand for AND: " + operand3);
-                            }
+                            std::string sr2 = operand3;
+                            machineCode = instrSet.encodeAddRegister(dr, sr1, sr2);
                         }
-                        else if (opcode == "BR")
+                        else if (operand3[0] == '#')
                         {
-                            if (parsed.operands.size() != 4)
-                            {
-                                throw std::invalid_argument("BR requires 4 operands (n z p offset).");
-                            }
-                            bool n = (parsed.operands[0] == "n" || parsed.operands[0] == "N");
-                            bool z = (parsed.operands[1] == "z" || parsed.operands[1] == "Z");
-                            bool p = (parsed.operands[2] == "p" || parsed.operands[2] == "P");
-                            std::string offsetStr = parsed.operands[3];
-                            int pcOffset9;
-                            if (offsetStr.find("x") == 0 || offsetStr.find("X") == 0)
-                            {
-                                pcOffset9 = std::stoi(offsetStr.substr(1), nullptr, 16);
-                            }
-                            else
-                            {
-                                pcOffset9 = std::stoi(offsetStr, nullptr, 10);
-                            }
-                            machineCode = instrSet.encodeBr(n, z, p, pcOffset9);
-                        }
-                        else if (opcode == "NOT")
-                        {
-                            if (parsed.operands.size() != 2)
-                            {
-                                throw std::invalid_argument("NOT requires exactly 2 operands.");
-                            }
-                            std::string dr = parsed.operands[0];
-                            std::string sr = parsed.operands[1];
-                            machineCode = instrSet.encodeNot(dr, sr);
-                        }
-                        else if (opcode == "RET")
-                        {
-                            machineCode = instrSet.encodeRet();
+                            int imm5 = std::stoi(operand3.substr(1));
+                            machineCode = instrSet.encodeAddImmediate(dr, sr1, imm5);
                         }
                         else
                         {
-                            throw std::invalid_argument("Unsupported opcode: " + opcode);
+                            throw std::invalid_argument("Invalid operand for ADD: " + operand3);
                         }
                     }
-
+                    else if (opcode == "AND")
+                    {
+                        if (currentParsed.operands.size() != 3)
+                        {
+                            throw std::invalid_argument("AND requires exactly 3 operands.");
+                        }
+                        std::string dr = currentParsed.operands[0];
+                        std::string sr1 = currentParsed.operands[1];
+                        std::string operand3 = currentParsed.operands[2];
+                        if (operand3[0] == 'R' || operand3[0] == 'r')
+                        {
+                            std::string sr2 = operand3;
+                            machineCode = instrSet.encodeAndRegister(dr, sr1, sr2);
+                        }
+                        else if (operand3[0] == '#')
+                        {
+                            int imm5 = std::stoi(operand3.substr(1));
+                            machineCode = instrSet.encodeAndImmediate(dr, sr1, imm5);
+                        }
+                        else
+                        {
+                            throw std::invalid_argument("Invalid operand for AND: " + operand3);
+                        }
+                    }
+                    else if (opcode == "NOT")
+                    {
+                        if (currentParsed.operands.size() != 2)
+                        {
+                            throw std::invalid_argument("NOT requires exactly 2 operands.");
+                        }
+                        std::string dr = currentParsed.operands[0];
+                        std::string sr = currentParsed.operands[1];
+                        machineCode = instrSet.encodeNot(dr, sr);
+                    }
+                    else if (opcode == "RET")
+                    {
+                        machineCode = instrSet.encodeRet();
+                    }
+                    else
+                    {
+                        throw std::invalid_argument("Unsupported opcode: " + opcode);
+                    }
                     // 기계어 코드 출력
                     outputFile.write(reinterpret_cast<char *>(&machineCode), sizeof(unsigned short));
-                    currentAddress += 1;
+                    currentAddress++;
                 }
             }
         }
 
-        inputFile.close();
         outputFile.close();
     }
 

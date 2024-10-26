@@ -205,7 +205,10 @@ namespace Assembler
                         // .ORIG의 첫 번째 오퍼랜드를 시작 주소로 설정
                         try
                         {
-                            currentAddress = std::stoi(parsed.operands[0], nullptr, 16);
+                            if (parsed.operands[0][0] == 'x' || parsed.operands[0][0] == 'X')
+                                currentAddress = std::stoi(parsed.operands[0].substr(1), nullptr, 16);
+                            else
+                                currentAddress = std::stoi(parsed.operands[0]);
                         }
                         catch (...)
                         {
