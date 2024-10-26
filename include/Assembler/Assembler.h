@@ -20,13 +20,12 @@ namespace Assembler
 
         void assemble(const std::string &inputFilePath, const std::string &outputFilePath);
         void firstPass(const std::string &inputFilePath);
+        void secondPass(const std::string &outputFilePath);
 
     private:
         Parser parser;
         SymbolTable symTable;
         InstructionSet instrSet;
-
-        void secondPass(const std::string &inputFilePath, const std::string &outputFilePath);
     };
 
 } // namespace Assembler
