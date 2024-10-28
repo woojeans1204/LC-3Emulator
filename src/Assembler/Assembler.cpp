@@ -51,6 +51,7 @@ namespace Assembler
         size_t currentLine = 0;
         parser.initLine();
         bool hasAddress = false;
+        unsigned short machineCode;
 
         while (parser.hasNext())
         {
@@ -69,8 +70,6 @@ namespace Assembler
                         currentAddress = std::stoi(operand.substr(1), nullptr, 16);
                     else
                         currentAddress = std::stoi(operand);
-                    unsigned short machineCode = static_cast<unsigned short>(currentAddress & 0xFFFF);
-                    outputFile.write(reinterpret_cast<char *>(&machineCode), sizeof(unsigned short));
                 }
                 else if (currentParsed.opcode == ".END")
                 {
@@ -89,7 +88,9 @@ namespace Assembler
                     else
                         value = std::stoi(operand);
 
-                    unsigned short machineCode = static_cast<unsigned short>(value & 0xFFFF);
+                    machineCode = static_cast<unsigned short>(currentAddress & 0xFFFF);
+                    outputFile.write(reinterpret_cast<char *>(&machineCode), sizeof(unsigned short));
+                    machineCode = static_cast<unsigned short>(value & 0xFFFF);
                     outputFile.write(reinterpret_cast<char *>(&machineCode), sizeof(unsigned short));
                     currentAddress += 1;
                 }
@@ -108,7 +109,9 @@ namespace Assembler
 
                     for (int i = 0; i < numWords; ++i)
                     {
-                        unsigned short machineCode = 0;
+                        machineCode = static_cast<unsigned short>(currentAddress & 0xFFFF);
+                        outputFile.write(reinterpret_cast<char *>(&machineCode), sizeof(unsigned short));
+                        machineCode = 0;
                         outputFile.write(reinterpret_cast<char *>(&machineCode), sizeof(unsigned short));
                         currentAddress++;
                     }
@@ -122,11 +125,15 @@ namespace Assembler
                     std::string str = currentParsed.operands[0];
                     for (char c : str)
                     {
-                        unsigned short machineCode = static_cast<unsigned short>(c);
+                        machineCode = static_cast<unsigned short>(currentAddress & 0xFFFF);
+                        outputFile.write(reinterpret_cast<char *>(&machineCode), sizeof(unsigned short));
+                        machineCode = static_cast<unsigned short>(c);
                         outputFile.write(reinterpret_cast<char *>(&machineCode), sizeof(unsigned short));
                         currentAddress++;
                     }
                     // Null terminator
+                    machineCode = static_cast<unsigned short>(currentAddress & 0xFFFF);
+                    outputFile.write(reinterpret_cast<char *>(&machineCode), sizeof(unsigned short));
                     unsigned short nullTerm = 0;
                     outputFile.write(reinterpret_cast<char *>(&nullTerm), sizeof(unsigned short));
                     currentAddress++;
@@ -134,7 +141,8 @@ namespace Assembler
                 else
                 {
                     // 명령어 인코딩
-                    unsigned short machineCode;
+                    machineCode = static_cast<unsigned short>(currentAddress & 0xFFFF);
+                    outputFile.write(reinterpret_cast<char *>(&machineCode), sizeof(unsigned short));
 
                     // Instruction encoding
                     // 예를 들어, ADD R1, R2, R3
@@ -209,6 +217,7 @@ namespace Assembler
                         throw std::invalid_argument("Unsupported opcode: " + opcode);
                     }
                     // 기계어 코드 출력
+
                     outputFile.write(reinterpret_cast<char *>(&machineCode), sizeof(unsigned short));
                     currentAddress++;
                 }

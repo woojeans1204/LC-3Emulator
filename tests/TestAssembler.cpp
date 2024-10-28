@@ -91,9 +91,12 @@ START  ADD R1, R2, R3
     std::vector<unsigned short> expectedMachineCodes = {
         0x3000,
         0x1283, // ADD R1, R2, R3
+        0x3001,
         0x596A, // AND R4, R5, #10 (실제 값은 어셈블러 구현에 따라 다를 수 있음)
+        0x3002,
         0x9DFF, // NOT R6, R7
-        0xC1C0  // RET
+        0x3003,
+        0xC1C0 // RET
     };
 
     // 검증: 어셈블 결과와 예상 기계어 코드 비교
