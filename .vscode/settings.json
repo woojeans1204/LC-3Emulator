@@ -65,6 +65,7 @@
     "ratio": "cpp",
     "xlocbuf": "cpp",
     "xlocmes": "cpp",
-    "xtree": "cpp"
+    "xtree": "cpp",
+    "array": "cpp"
   }
 }

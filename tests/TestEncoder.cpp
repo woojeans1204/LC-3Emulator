@@ -1,7 +1,7 @@
-// tests/TestInstructionSet.cpp
+// tests/TestEncoder.cpp
 #include <iostream>
 #include <cassert>
-#include "Assembler/InstructionSet.h"
+#include "Assembler/Encoder.h"
 
 int main()
 {

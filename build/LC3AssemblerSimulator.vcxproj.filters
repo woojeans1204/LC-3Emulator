@@ -4,7 +4,7 @@
     <ClCompile Include="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\src\Assembler\Assembler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\src\Assembler\InstructionSet.cpp">
+    <ClCompile Include="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\src\Assembler\Encoder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\src\Assembler\Parser.cpp">
@@ -14,6 +14,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\src\Assembler\keyword.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\src\Simulator\Memory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
