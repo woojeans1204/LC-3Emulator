@@ -16,7 +16,34 @@
     <ClCompile Include="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\src\Assembler\keyword.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\src\Simulator\Decoder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\src\Simulator\Instructions\AddInstruction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\src\Simulator\Instructions\AndInstruction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\src\Simulator\Instructions\BrInstruction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\src\Simulator\Instructions\HaltInstruction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\src\Simulator\Instructions\JmpInstruction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\src\Simulator\Instructions\NotInstruction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\src\Simulator\LC3Emulator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\src\Simulator\Memory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\src\Simulator\RegisterFile.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

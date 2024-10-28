@@ -78,7 +78,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\include;C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\include\Simulator;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -99,10 +99,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\include;C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\include\Simulator;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\include;C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\include\Simulator;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -115,7 +115,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\include;C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\include\Simulator;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -137,10 +137,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\include;C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\include\Simulator;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\include;C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\include\Simulator;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -153,7 +153,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\include;C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\include\Simulator;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -175,10 +175,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\include;C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\include\Simulator;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\include;C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\include\Simulator;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -191,7 +191,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\include;C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\include\Simulator;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -212,10 +212,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\include;C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\include\Simulator;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\include;C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\include\Simulator;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -289,7 +289,16 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\src\Assembler\Parser.cpp" />
     <ClCompile Include="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\src\Assembler\SymbolTable.cpp" />
     <ClCompile Include="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\src\Assembler\keyword.cpp" />
+    <ClCompile Include="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\src\Simulator\Decoder.cpp" />
+    <ClCompile Include="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\src\Simulator\Instructions\AddInstruction.cpp" />
+    <ClCompile Include="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\src\Simulator\Instructions\AndInstruction.cpp" />
+    <ClCompile Include="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\src\Simulator\Instructions\BrInstruction.cpp" />
+    <ClCompile Include="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\src\Simulator\Instructions\HaltInstruction.cpp" />
+    <ClCompile Include="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\src\Simulator\Instructions\JmpInstruction.cpp" />
+    <ClCompile Include="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\src\Simulator\Instructions\NotInstruction.cpp" />
+    <ClCompile Include="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\src\Simulator\LC3Emulator.cpp" />
     <ClCompile Include="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\src\Simulator\Memory.cpp" />
+    <ClCompile Include="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\src\Simulator\RegisterFile.cpp" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
