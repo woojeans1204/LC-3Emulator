@@ -69,7 +69,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\include;C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\include\Simulator;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -79,7 +79,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\include;C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\include\Simulator;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -89,7 +89,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\include;C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\include\Simulator;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -99,7 +99,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\include;C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\include\Simulator;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -182,6 +182,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Project>{634A31AB-4980-39E6-862A-84A1832E31F8}</Project>
       <Name>TestEncoder</Name>
     </ProjectReference>
+    <ProjectReference Include="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\build\tests\TestLC3Emulator.vcxproj">
+      <Project>{0BD4B77D-8DBF-3674-AC2E-078DC895B4FC}</Project>
+      <Name>TestLC3Emulator</Name>
+    </ProjectReference>
     <ProjectReference Include="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\build\tests\TestMemory.vcxproj">
       <Project>{7BDF53CA-FAE2-301F-A76F-9DD91C5BCA08}</Project>
       <Name>TestMemory</Name>
@@ -189,6 +193,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ProjectReference Include="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\build\tests\TestParser.vcxproj">
       <Project>{60091F58-FB98-3A9C-AAFD-9955B7614964}</Project>
       <Name>TestParser</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\build\tests\TestRegisterFile.vcxproj">
+      <Project>{E26F6F73-0C1F-376C-A196-27168F43BD19}</Project>
+      <Name>TestRegisterFile</Name>
     </ProjectReference>
     <ProjectReference Include="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\build\tests\TestSymbolTable.vcxproj">
       <Project>{8200E53E-F2CB-31A0-B065-A83DDAD34746}</Project>
