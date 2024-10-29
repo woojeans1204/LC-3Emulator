@@ -145,7 +145,6 @@ void testMultipleLabelsSameLine()
     SymbolTable symTable;
     Parser parser(symTable);
     parser.parseSource(sourceCode);
-    parser.printLines();
 
     assert(parser.hasNext() && "Parser should have line.");
     ParsedLine line = parser.getNext();

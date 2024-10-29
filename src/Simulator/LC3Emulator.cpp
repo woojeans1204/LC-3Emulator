@@ -1,6 +1,5 @@
 // src/Simulator/LC3Emulator.cpp
 #include "Simulator/LC3Emulator.h"
-#include "Decoder.h"
 
 namespace Simulator
 {
@@ -22,17 +21,24 @@ namespace Simulator
 
     void LC3Emulator::run()
     {
-        Decoder decoder;
 
-        while (!halted)
-        {
-            uint16_t pc = regFile.readPC();
-            uint16_t instructionCode = memory.read(pc);
-            regFile.writePC(pc + 1); // PC 증가
+        uint16_t pc = regFile.readPC();
+        uint16_t instructionCode = memory.read(pc);
+        regFile.writePC(pc + 1); // PC 증가
 
-            auto instruction = decoder.decode(instructionCode);
-            instruction->execute(*this);
-        }
+        auto instruction = decoder.decode(instructionCode);
+        instruction->execute(*this);
+    }
+
+    void LC3Emulator::step()
+    {
+
+        uint16_t pc = regFile.readPC();
+        uint16_t instructionCode = memory.read(pc);
+        regFile.writePC(pc + 1); // PC 증가
+
+        auto instruction = decoder.decode(instructionCode);
+        instruction->execute(*this);
     }
 
     void LC3Emulator::loadProgram(const std::vector<std::pair<uint16_t, uint16_t>> &program)

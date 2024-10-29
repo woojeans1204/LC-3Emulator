@@ -2,10 +2,10 @@
 #pragma once
 
 #include <cstdint>
-#include "Simulator/LC3Emulator.h"
 
 namespace Simulator
 {
+    class LC3Emulator;
     namespace Instructions
     {
 

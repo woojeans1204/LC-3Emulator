@@ -1,6 +1,8 @@
 // src/Assembler/Encoder.cpp
 #include "Assembler/Encoder.h"
 #include <iostream>
+#include <stdexcept>
+#include <cctype>
 
 namespace Assembler
 {
@@ -166,17 +168,209 @@ namespace Assembler
 
     unsigned short InstructionSet::encodeRet()
     {
-        // Opcode for RET: 1100 0000 0010 0101 (1000 0000 0010 0101)
-        // RET is actually a synonym for JMP R7, so we'll encode it as JMP R7
-        // Opcode for JMP: 1100
+        // Opcode for RET (JMP R7): 1100
         unsigned short opcode = 0xC << 12;
 
         // Base Register (R7)
         int baseRNum = 7;
         opcode |= (baseRNum & 0x7) << 6;
 
-        // Bits [5:0] = 000000 for RET
+        // Bits [5:0] = 000000
         opcode |= 0x0;
+
+        return opcode;
+    }
+
+    unsigned short InstructionSet::encodeHalt()
+    {
+        // Opcode for TRAP: 1111
+        unsigned short opcode = 0xF << 12;
+
+        // Trap vector for HALT: x25
+        unsigned short trapvect8 = 0x25;
+
+        opcode |= trapvect8;
+
+        return opcode;
+    }
+
+    unsigned short InstructionSet::encodeJmp(const std::string &baseR)
+    {
+        // Opcode for JMP: 1100
+        unsigned short opcode = 0xC << 12;
+
+        // Base Register
+        int baseRNum = getRegisterNumber(baseR);
+        opcode |= (baseRNum & 0x7) << 6;
+
+        // Bits [5:0] = 000000
+        opcode |= 0x0;
+
+        return opcode;
+    }
+
+    unsigned short InstructionSet::encodeLd(const std::string &dr, int pcOffset9)
+    {
+        // Opcode for LD: 0010
+        unsigned short opcode = 0x2 << 12;
+
+        // DR (Destination Register)
+        int drNum = getRegisterNumber(dr);
+        opcode |= (drNum & 0x7) << 9;
+
+        // PCoffset9 (9 bits)
+        if (pcOffset9 < -256 || pcOffset9 > 255)
+        {
+            throw std::invalid_argument("PCoffset9 out of range (-256 ~ +255): " + std::to_string(pcOffset9));
+        }
+
+        unsigned short pcOffset9Bits = static_cast<unsigned short>(pcOffset9 & 0x1FF);
+        opcode |= pcOffset9Bits;
+
+        return opcode;
+    }
+
+    unsigned short InstructionSet::encodeLdi(const std::string &dr, int pcOffset9)
+    {
+        // Opcode for LDI: 1010
+        unsigned short opcode = 0xA << 12;
+
+        // DR (Destination Register)
+        int drNum = getRegisterNumber(dr);
+        opcode |= (drNum & 0x7) << 9;
+
+        // PCoffset9 (9 bits)
+        if (pcOffset9 < -256 || pcOffset9 > 255)
+        {
+            throw std::invalid_argument("PCoffset9 out of range (-256 ~ +255): " + std::to_string(pcOffset9));
+        }
+
+        unsigned short pcOffset9Bits = static_cast<unsigned short>(pcOffset9 & 0x1FF);
+        opcode |= pcOffset9Bits;
+
+        return opcode;
+    }
+
+    unsigned short InstructionSet::encodeLdr(const std::string &dr, const std::string &baseR, int offset6)
+    {
+        // Opcode for LDR: 0110
+        unsigned short opcode = 0x6 << 12;
+
+        // DR (Destination Register)
+        int drNum = getRegisterNumber(dr);
+        opcode |= (drNum & 0x7) << 9;
+
+        // Base Register
+        int baseRNum = getRegisterNumber(baseR);
+        opcode |= (baseRNum & 0x7) << 6;
+
+        // offset6 (6 bits)
+        if (offset6 < -32 || offset6 > 31)
+        {
+            throw std::invalid_argument("offset6 out of range (-32 ~ +31): " + std::to_string(offset6));
+        }
+
+        unsigned short offset6Bits = static_cast<unsigned short>(offset6 & 0x3F);
+        opcode |= offset6Bits;
+
+        return opcode;
+    }
+
+    unsigned short InstructionSet::encodeLea(const std::string &dr, int pcOffset9)
+    {
+        // Opcode for LEA: 1110
+        unsigned short opcode = 0xE << 12;
+
+        // DR (Destination Register)
+        int drNum = getRegisterNumber(dr);
+        opcode |= (drNum & 0x7) << 9;
+
+        // PCoffset9 (9 bits)
+        if (pcOffset9 < -256 || pcOffset9 > 255)
+        {
+            throw std::invalid_argument("PCoffset9 out of range (-256 ~ +255): " + std::to_string(pcOffset9));
+        }
+
+        unsigned short pcOffset9Bits = static_cast<unsigned short>(pcOffset9 & 0x1FF);
+        opcode |= pcOffset9Bits;
+
+        return opcode;
+    }
+
+    unsigned short InstructionSet::encodeSt(const std::string &sr, int pcOffset9)
+    {
+        // Opcode for ST: 0011
+        unsigned short opcode = 0x3 << 12;
+
+        // SR (Source Register)
+        int srNum = getRegisterNumber(sr);
+        opcode |= (srNum & 0x7) << 9;
+
+        // PCoffset9 (9 bits)
+        if (pcOffset9 < -256 || pcOffset9 > 255)
+        {
+            throw std::invalid_argument("PCoffset9 out of range (-256 ~ +255): " + std::to_string(pcOffset9));
+        }
+
+        unsigned short pcOffset9Bits = static_cast<unsigned short>(pcOffset9 & 0x1FF);
+        opcode |= pcOffset9Bits;
+
+        return opcode;
+    }
+
+    unsigned short InstructionSet::encodeSti(const std::string &sr, int pcOffset9)
+    {
+        // Opcode for STI: 1011
+        unsigned short opcode = 0xB << 12;
+
+        // SR (Source Register)
+        int srNum = getRegisterNumber(sr);
+        opcode |= (srNum & 0x7) << 9;
+
+        // PCoffset9 (9 bits)
+        if (pcOffset9 < -256 || pcOffset9 > 255)
+        {
+            throw std::invalid_argument("PCoffset9 out of range (-256 ~ +255): " + std::to_string(pcOffset9));
+        }
+
+        unsigned short pcOffset9Bits = static_cast<unsigned short>(pcOffset9 & 0x1FF);
+        opcode |= pcOffset9Bits;
+
+        return opcode;
+    }
+
+    unsigned short InstructionSet::encodeStr(const std::string &sr, const std::string &baseR, int offset6)
+    {
+        // Opcode for STR: 0111
+        unsigned short opcode = 0x7 << 12;
+
+        // SR (Source Register)
+        int srNum = getRegisterNumber(sr);
+        opcode |= (srNum & 0x7) << 9;
+
+        // Base Register
+        int baseRNum = getRegisterNumber(baseR);
+        opcode |= (baseRNum & 0x7) << 6;
+
+        // offset6 (6 bits)
+        if (offset6 < -32 || offset6 > 31)
+        {
+            throw std::invalid_argument("offset6 out of range (-32 ~ +31): " + std::to_string(offset6));
+        }
+
+        unsigned short offset6Bits = static_cast<unsigned short>(offset6 & 0x3F);
+        opcode |= offset6Bits;
+
+        return opcode;
+    }
+
+    unsigned short InstructionSet::encodeTrap(unsigned char trapvect8)
+    {
+        // Opcode for TRAP: 1111
+        unsigned short opcode = 0xF << 12;
+
+        // trapvect8 (8 bits)
+        opcode |= (trapvect8 & 0xFF);
 
         return opcode;
     }
