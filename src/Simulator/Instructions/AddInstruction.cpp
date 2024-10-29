@@ -1,5 +1,6 @@
 // src/Simulator/Instructions/AddInstruction.cpp
 #include "Instructions/AddInstruction.h"
+#include "Simulator/LC3Emulator.h" // LC3Emulator 클래스 정의 포함
 
 namespace Simulator
 {

@@ -26,6 +26,9 @@ namespace Assembler
         Parser parser;
         SymbolTable symTable;
         InstructionSet instrSet;
+
+        int Assembler::parseImmediate(const std::string &operand, int bitCount);
+        int Assembler::computePCOffset(int currentAddress, const std::string &label, int bitCount);
     };
 
 } // namespace Assembler
