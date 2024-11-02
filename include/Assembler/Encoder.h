@@ -27,31 +27,45 @@ namespace Assembler
 
         unsigned short encodeRet();
 
+        unsigned short encodeJmp(const std::string &baseR);
+
+        unsigned short encodeLd(const std::string &dr, int pcOffset9);
+
+        unsigned short encodeLdi(const std::string &dr, int pcOffset9);
+
+        unsigned short encodeLdr(const std::string &dr, const std::string &baseR, int offset6);
+
+        unsigned short encodeLea(const std::string &dr, int pcOffset9);
+
+        unsigned short encodeSt(const std::string &sr, int pcOffset9);
+
+        unsigned short encodeSti(const std::string &sr, int pcOffset9);
+
+        unsigned short encodeStr(const std::string &sr, const std::string &baseR, int offset6);
+
+        unsigned short encodeTrap(unsigned char trapvect8);
+
+        unsigned short encodeJsr(int pcOffset11);
+
+        unsigned short encodeJsrr(const std::string &baseR);
+
+        unsigned short encodeRti();
+
+        unsigned short encodeGetc();
+
+        unsigned short encodeOut();
+
+        unsigned short encodePuts();
+
+        unsigned short encodeIn();
+
+        unsigned short encodePutsp();
+
         unsigned short encodeHalt();
 
-        unsigned short InstructionSet::encodeJmp(const std::string &baseR);
-
-        unsigned short InstructionSet::encodeLd(const std::string &dr, int pcOffset9);
-
-        unsigned short InstructionSet::encodeLdi(const std::string &dr, int pcOffset9);
-
-        unsigned short InstructionSet::encodeLdr(const std::string &dr, const std::string &baseR, int offset6);
-
-        unsigned short InstructionSet::encodeLea(const std::string &dr, int pcOffset9);
-
-        unsigned short InstructionSet::encodeSt(const std::string &sr, int pcOffset9);
-
-        unsigned short InstructionSet::encodeSti(const std::string &sr, int pcOffset9);
-
-        unsigned short InstructionSet::encodeStr(const std::string &sr, const std::string &baseR, int offset6);
-
-        unsigned short InstructionSet::encodeTrap(unsigned char trapvect8);
-
-        // 추가 명령어 인코딩 함수들 (JMP, JSR, LD, ST, NOT, RET 등)
-        // ...
-
     private:
-        int getRegisterNumber(const std::string &reg) const;
+        int
+        getRegisterNumber(const std::string &reg) const;
     };
 
 } // namespace Assembler

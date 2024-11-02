@@ -181,19 +181,6 @@ namespace Assembler
         return opcode;
     }
 
-    unsigned short InstructionSet::encodeHalt()
-    {
-        // Opcode for TRAP: 1111
-        unsigned short opcode = 0xF << 12;
-
-        // Trap vector for HALT: x25
-        unsigned short trapvect8 = 0x25;
-
-        opcode |= trapvect8;
-
-        return opcode;
-    }
-
     unsigned short InstructionSet::encodeJmp(const std::string &baseR)
     {
         // Opcode for JMP: 1100
@@ -224,7 +211,7 @@ namespace Assembler
             throw std::invalid_argument("PCoffset9 out of range (-256 ~ +255): " + std::to_string(pcOffset9));
         }
 
-        unsigned short pcOffset9Bits = static_cast<unsigned short>(pcOffset9 & 0x1FF);
+        unsigned short pcOffset9Bits = pcOffset9 & 0x1FF;
         opcode |= pcOffset9Bits;
 
         return opcode;
@@ -245,13 +232,13 @@ namespace Assembler
             throw std::invalid_argument("PCoffset9 out of range (-256 ~ +255): " + std::to_string(pcOffset9));
         }
 
-        unsigned short pcOffset9Bits = static_cast<unsigned short>(pcOffset9 & 0x1FF);
+        unsigned short pcOffset9Bits = pcOffset9 & 0x1FF;
         opcode |= pcOffset9Bits;
 
         return opcode;
     }
 
-    unsigned short InstructionSet::encodeLdr(const std::string &dr, const std::string &baseR, int offset6)
+    unsigned short InstructionSet::encodeLdr(const std::string &dr, const std::string &baseR, int pcOffset6)
     {
         // Opcode for LDR: 0110
         unsigned short opcode = 0x6 << 12;
@@ -265,13 +252,13 @@ namespace Assembler
         opcode |= (baseRNum & 0x7) << 6;
 
         // offset6 (6 bits)
-        if (offset6 < -32 || offset6 > 31)
+        if (pcOffset6 < -32 || pcOffset6 > 31)
         {
-            throw std::invalid_argument("offset6 out of range (-32 ~ +31): " + std::to_string(offset6));
+            throw std::invalid_argument("pcOffset6 out of range (-32 ~ +31): " + std::to_string(pcOffset6));
         }
 
-        unsigned short offset6Bits = static_cast<unsigned short>(offset6 & 0x3F);
-        opcode |= offset6Bits;
+        unsigned short pcOffset6Bits = pcOffset6 & 0x1FF;
+        opcode |= pcOffset6Bits;
 
         return opcode;
     }
@@ -291,7 +278,7 @@ namespace Assembler
             throw std::invalid_argument("PCoffset9 out of range (-256 ~ +255): " + std::to_string(pcOffset9));
         }
 
-        unsigned short pcOffset9Bits = static_cast<unsigned short>(pcOffset9 & 0x1FF);
+        unsigned short pcOffset9Bits = pcOffset9 & 0x1FF;
         opcode |= pcOffset9Bits;
 
         return opcode;
@@ -373,6 +360,90 @@ namespace Assembler
         opcode |= (trapvect8 & 0xFF);
 
         return opcode;
+    }
+
+    unsigned short InstructionSet::encodeJsr(int pcOffset11)
+    {
+        // Opcode for JSR: 0100
+        unsigned short opcode = 0x4 << 12;
+
+        // Bit 11 = 1 for JSR
+        opcode |= (1 << 11);
+
+        // PCoffset11 (11 bits)
+        if (pcOffset11 < -1024 || pcOffset11 > 1023)
+        {
+            throw std::invalid_argument("PCoffset11 out of range (-1024 ~ +1023): " + std::to_string(pcOffset11));
+        }
+
+        unsigned short pcOffset11Bits = static_cast<unsigned short>(pcOffset11 & 0x07FF);
+        opcode |= pcOffset11Bits;
+
+        return opcode;
+    }
+
+    unsigned short InstructionSet::encodeJsrr(const std::string &baseR)
+    {
+        // Opcode for JSRR: 0100
+        unsigned short opcode = 0x4 << 12;
+
+        // Bit 11 = 0 for JSRR
+        // Bits [10:9] = 00 (사용되지 않음)
+
+        // Base Register
+        int baseRNum = getRegisterNumber(baseR);
+        opcode |= (baseRNum & 0x7) << 6;
+
+        // Bits [5:0] = 000000 (사용되지 않음)
+
+        return opcode;
+    }
+
+    unsigned short InstructionSet::encodeRti()
+    {
+        // Opcode for RTI: 1000
+        unsigned short opcode = 0x8 << 12;
+
+        // 나머지 비트는 모두 0
+        opcode |= 0x0000;
+
+        return opcode;
+    }
+
+    unsigned short InstructionSet::encodeGetc()
+    {
+        // TRAP x20
+        return encodeTrap(0x20);
+    }
+
+    unsigned short InstructionSet::encodeOut()
+    {
+        // TRAP x21
+        return encodeTrap(0x21);
+    }
+
+    unsigned short InstructionSet::encodePuts()
+    {
+        // TRAP x22
+        return encodeTrap(0x22);
+    }
+
+    unsigned short InstructionSet::encodeIn()
+    {
+        // TRAP x23
+        return encodeTrap(0x23);
+    }
+
+    unsigned short InstructionSet::encodePutsp()
+    {
+        // TRAP x24
+        return encodeTrap(0x24);
+    }
+
+    unsigned short InstructionSet::encodeHalt()
+    {
+        // TRAP x25
+        return encodeTrap(0x25);
     }
 
 } // namespace Assembler
