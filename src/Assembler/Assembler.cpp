@@ -135,7 +135,8 @@ namespace Assembler
                 {
                     // 주소와 0으로 초기화된 기계어 코드 출력
                     machineCode = static_cast<unsigned short>((currentAddress + i) & 0xFFFF);
-                    outputFile.write(reinterpret_cast<char *>(&machineCode), sizeof(unsigned short));
+                    if (i > 0)
+                        outputFile.write(reinterpret_cast<char *>(&machineCode), sizeof(unsigned short));
                     machineCode = 0;
                     outputFile.write(reinterpret_cast<char *>(&machineCode), sizeof(unsigned short));
                 }
@@ -153,14 +154,17 @@ namespace Assembler
                 {
                     str = str.substr(1, str.length() - 2);
                 }
+                bool is_first = true;
                 for (char c : str)
                 {
                     // 주소와 문자 코드 출력
                     machineCode = static_cast<unsigned short>(currentAddress & 0xFFFF);
-                    outputFile.write(reinterpret_cast<char *>(&machineCode), sizeof(unsigned short));
+                    if (!is_first)
+                        outputFile.write(reinterpret_cast<char *>(&machineCode), sizeof(unsigned short));
                     machineCode = static_cast<unsigned short>(c);
                     outputFile.write(reinterpret_cast<char *>(&machineCode), sizeof(unsigned short));
                     currentAddress++;
+                    is_first = false;
                 }
                 // Null terminator
                 machineCode = static_cast<unsigned short>(currentAddress & 0xFFFF);
@@ -214,6 +218,35 @@ namespace Assembler
                         machineCode = instrSet.encodeAndImmediate(dr, sr1, imm5);
                     }
                 }
+                else if (opcode.substr(0, 2) == "BR")
+                {
+                    std::string condition = opcode.substr(2); // "nzp" 등
+                    bool n = false, z = false, p = false;
+                    for (char c : condition)
+                    {
+                        if (c == 'n' || c == 'N')
+                            n = true;
+                        else if (c == 'z' || c == 'Z')
+                            z = true;
+                        else if (c == 'p' || c == 'P')
+                            p = true;
+                        else
+                            throw std::invalid_argument("Invalid condition code in BR: " + opcode);
+                    }
+                    // 조건 코드가 없으면 기본적으로 모두 활성화
+                    if (!n && !z && !p)
+                    {
+                        n = z = p = true;
+                    }
+
+                    if (currentParsed.operands.size() != 1)
+                    {
+                        throw std::invalid_argument(opcode + " requires exactly 1 operand.");
+                    }
+                    std::string label = currentParsed.operands[0];
+                    int pcOffset9 = computePCOffset(currentAddress, label, 9);
+                    machineCode = instrSet.encodeBr(n, z, p, pcOffset9);
+                }
                 else if (opcode == "NOT")
                 {
                     if (currentParsed.operands.size() != 2)
@@ -228,9 +261,154 @@ namespace Assembler
                 {
                     machineCode = instrSet.encodeRet();
                 }
+                else if (opcode == "JMP")
+                {
+                    if (currentParsed.operands.size() != 1)
+                    {
+                        throw std::invalid_argument("JMP requires exactly 1 operand.");
+                    }
+                    std::string baseR = currentParsed.operands[0];
+                    machineCode = instrSet.encodeJmp(baseR);
+                }
+                else if (opcode == "JSR")
+                {
+                    if (currentParsed.operands.size() != 1)
+                    {
+                        throw std::invalid_argument("JSR requires exactly 1 operand.");
+                    }
+                    std::string label = currentParsed.operands[0];
+                    int pcOffset11 = computePCOffset(currentAddress, label, 11);
+                    machineCode = instrSet.encodeJsr(pcOffset11);
+                }
+                else if (opcode == "JSRR")
+                {
+                    if (currentParsed.operands.size() != 1)
+                    {
+                        throw std::invalid_argument("JSRR requires exactly 1 operand.");
+                    }
+                    std::string baseR = currentParsed.operands[0];
+                    machineCode = instrSet.encodeJsrr(baseR);
+                }
+                else if (opcode == "LD")
+                {
+                    if (currentParsed.operands.size() != 2)
+                    {
+                        throw std::invalid_argument("LD requires exactly 2 operands.");
+                    }
+                    std::string dr = currentParsed.operands[0];
+                    std::string label = currentParsed.operands[1];
+                    int pcOffset9 = computePCOffset(currentAddress, label, 9);
+                    machineCode = instrSet.encodeLd(dr, pcOffset9);
+                }
+                else if (opcode == "LDI")
+                {
+                    if (currentParsed.operands.size() != 2)
+                    {
+                        throw std::invalid_argument("LDI requires exactly 2 operands.");
+                    }
+                    std::string dr = currentParsed.operands[0];
+                    std::string label = currentParsed.operands[1];
+                    int pcOffset9 = computePCOffset(currentAddress, label, 9);
+                    machineCode = instrSet.encodeLdi(dr, pcOffset9);
+                }
+                else if (opcode == "LDR")
+                {
+                    if (currentParsed.operands.size() != 3)
+                    {
+                        throw std::invalid_argument("LDR requires exactly 3 operands.");
+                    }
+                    std::string dr = currentParsed.operands[0];
+                    std::string baseR = currentParsed.operands[1];
+                    std::string offset6Str = currentParsed.operands[2];
+                    int offset6 = parseImmediate(offset6Str, 6);
+                    machineCode = instrSet.encodeLdr(dr, baseR, offset6);
+                }
+                else if (opcode == "LEA")
+                {
+                    if (currentParsed.operands.size() != 2)
+                    {
+                        throw std::invalid_argument("LEA requires exactly 2 operands.");
+                    }
+                    std::string dr = currentParsed.operands[0];
+                    std::string label = currentParsed.operands[1];
+                    int pcOffset9 = computePCOffset(currentAddress, label, 9);
+                    machineCode = instrSet.encodeLea(dr, pcOffset9);
+                }
+                else if (opcode == "ST")
+                {
+                    if (currentParsed.operands.size() != 2)
+                    {
+                        throw std::invalid_argument("ST requires exactly 2 operands.");
+                    }
+                    std::string sr = currentParsed.operands[0];
+                    std::string label = currentParsed.operands[1];
+                    int pcOffset9 = computePCOffset(currentAddress, label, 9);
+                    machineCode = instrSet.encodeSt(sr, pcOffset9);
+                }
+                else if (opcode == "STI")
+                {
+                    if (currentParsed.operands.size() != 2)
+                    {
+                        throw std::invalid_argument("STI requires exactly 2 operands.");
+                    }
+                    std::string sr = currentParsed.operands[0];
+                    std::string label = currentParsed.operands[1];
+                    int pcOffset9 = computePCOffset(currentAddress, label, 9);
+                    machineCode = instrSet.encodeSti(sr, pcOffset9);
+                }
+                else if (opcode == "STR")
+                {
+                    if (currentParsed.operands.size() != 3)
+                    {
+                        throw std::invalid_argument("STR requires exactly 3 operands.");
+                    }
+                    std::string sr = currentParsed.operands[0];
+                    std::string baseR = currentParsed.operands[1];
+                    std::string offset6Str = currentParsed.operands[2];
+                    int offset6 = parseImmediate(offset6Str, 6);
+                    machineCode = instrSet.encodeStr(sr, baseR, offset6);
+                }
+                else if (opcode == "TRAP")
+                {
+                    if (currentParsed.operands.size() != 1)
+                    {
+                        throw std::invalid_argument("TRAP requires exactly 1 operand.");
+                    }
+                    std::string trapvect8Str = currentParsed.operands[0];
+                    unsigned char trapvect8;
+                    if (trapvect8Str[0] == 'x' || trapvect8Str[0] == 'X')
+                        trapvect8 = static_cast<unsigned char>(std::stoi(trapvect8Str.substr(1), nullptr, 16));
+                    else
+                        trapvect8 = static_cast<unsigned char>(std::stoi(trapvect8Str, nullptr, 10));
+                    machineCode = instrSet.encodeTrap(trapvect8);
+                }
+                else if (opcode == "GETC")
+                {
+                    machineCode = instrSet.encodeGetc();
+                }
+                else if (opcode == "OUT")
+                {
+                    machineCode = instrSet.encodeOut();
+                }
+                else if (opcode == "PUTS")
+                {
+                    machineCode = instrSet.encodePuts();
+                }
+                else if (opcode == "IN")
+                {
+                    machineCode = instrSet.encodeIn();
+                }
+                else if (opcode == "PUTSP")
+                {
+                    machineCode = instrSet.encodePutsp();
+                }
                 else if (opcode == "HALT")
                 {
                     machineCode = instrSet.encodeHalt();
+                }
+                else if (opcode == "RTI")
+                {
+                    machineCode = instrSet.encodeRti();
                 }
                 else
                 {
@@ -242,7 +420,6 @@ namespace Assembler
                 currentAddress += 1;
             }
         }
-
         outputFile.close();
     }
 
