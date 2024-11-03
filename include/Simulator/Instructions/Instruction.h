@@ -32,10 +32,22 @@ namespace Simulator
     } // namespace Instructions
 } // namespace Simulator
 
-// 개별 명령어 헤더 포함
-#include "AddInstruction.h"
-#include "AndInstruction.h"
-#include "NotInstruction.h"
-#include "BrInstruction.h"
-#include "JmpInstruction.h"
-#include "HaltInstruction.h"
+// // 개별 명령어 헤더 포함
+// #include "AddInstruction.h"
+// #include "AndInstruction.h"
+// #include "BrInstruction.h"
+// #include "HaltInstruction.h"
+// #include "JmpInstruction.h"
+// #include "JmpInstruction.h"
+// #include "JsrInstruction.h"
+// #include "JsrrInstruction.h"
+// #include "LdiInstruction.h"
+// #include "LdInstruction.h"
+// #include "LdrInstruction.h"
+// #include "LeaInstruction.h"
+// #include "NotInstruction.h"
+// #include "RtiInstruction.h"
+// #include "StiInstruction.h"
+// #include "StInstruction.h"
+// #include "StrInstruction.h"
+// #include "TrapInstruction.h"

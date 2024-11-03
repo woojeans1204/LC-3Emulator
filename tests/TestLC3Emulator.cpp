@@ -13,8 +13,9 @@ int main()
     // 주소와 명령어의 쌍으로 프로그램 작성
     // 메모리 주소는 x3000부터 시작
     std::vector<std::pair<uint16_t, uint16_t>> program = {
-        {0x3000, 0x1283}, // ADD R1, R2, R3
-        {0x3001, 0xF025}  // HALT
+        {0x3000, 0x2201}, // LD R1 LABEL
+        {0x3001, 0xF025}, // HALT
+        {0x3002, 0x9999}, // LABEL .FILL 0x9999
     };
 
     // 레지스터 초기화
@@ -29,8 +30,8 @@ int main()
 
     // 결과 확인
     uint16_t r1 = emulator.getRegisterFile().readRegister(1);
-    std::cout << "R1 after execution: " << r1 << " (Expected: 15)" << std::endl;
-    assert(r1 == 15 && "LC3Emulator test failed");
+    std::cout << "R1 after execution: " << r1 << " (Expected: 0x9999)" << std::endl;
+    assert(r1 == 0x9999 && "LC3Emulator test failed");
 
     std::cout << "LC3Emulator test passed successfully." << std::endl;
     return 0;

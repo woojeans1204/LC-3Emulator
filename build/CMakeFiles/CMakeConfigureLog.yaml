@@ -26,7 +26,7 @@ events:
       .NET Framework용 Microsoft (R) Build Engine 버전 17.2.1+52cd2da31
       Copyright (C) Microsoft Corporation. All rights reserved.
       
-      빌드 시작: 2024-10-23 오후 8:50:15
+      빌드 시작: 2024-11-04 오전 4:51:16
       1 노드의 "C:\\Users\\awj12\\OneDrive\\바탕 화면\\대학교\\GitHub\\LC-3Emulator\\build\\CMakeFiles\\3.31.0-rc2\\CompilerIdC\\CompilerIdC.vcxproj" 프로젝트(기본 대상)입니다.
       PrepareForBuild:
         "Debug\\" 디렉터리를 만들고 있습니다.
@@ -52,7 +52,7 @@ events:
           경고 0개
           오류 0개
       
-      경과 시간: 00:00:00.96
+      경과 시간: 00:00:01.02
       
       
       Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
@@ -80,7 +80,7 @@ events:
       .NET Framework용 Microsoft (R) Build Engine 버전 17.2.1+52cd2da31
       Copyright (C) Microsoft Corporation. All rights reserved.
       
-      빌드 시작: 2024-10-23 오후 8:50:16
+      빌드 시작: 2024-11-04 오전 4:51:18
       1 노드의 "C:\\Users\\awj12\\OneDrive\\바탕 화면\\대학교\\GitHub\\LC-3Emulator\\build\\CMakeFiles\\3.31.0-rc2\\CompilerIdCXX\\CompilerIdCXX.vcxproj" 프로젝트(기본 대상)입니다.
       PrepareForBuild:
         "Debug\\" 디렉터리를 만들고 있습니다.
@@ -106,7 +106,7 @@ events:
           경고 0개
           오류 0개
       
-      경과 시간: 00:00:00.73
+      경과 시간: 00:00:00.80
       
       
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
@@ -125,8 +125,8 @@ events:
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "C:/Users/awj12/OneDrive/\ubc14\ud0d5 \ud654\uba74/\ub300\ud559\uad50/GitHub/LC-3Emulator/build/CMakeFiles/CMakeScratch/TryCompile-8s50mx"
-      binary: "C:/Users/awj12/OneDrive/\ubc14\ud0d5 \ud654\uba74/\ub300\ud559\uad50/GitHub/LC-3Emulator/build/CMakeFiles/CMakeScratch/TryCompile-8s50mx"
+      source: "C:/Users/awj12/OneDrive/\ubc14\ud0d5 \ud654\uba74/\ub300\ud559\uad50/GitHub/LC-3Emulator/build/CMakeFiles/CMakeScratch/TryCompile-79plae"
+      binary: "C:/Users/awj12/OneDrive/\ubc14\ud0d5 \ud654\uba74/\ub300\ud559\uad50/GitHub/LC-3Emulator/build/CMakeFiles/CMakeScratch/TryCompile-79plae"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
       CMAKE_C_FLAGS_DEBUG: "/MDd /Zi /Ob0 /Od /RTC1"
@@ -135,39 +135,39 @@ events:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/awj12/OneDrive/바탕 화면/대학교/GitHub/LC-3Emulator/build/CMakeFiles/CMakeScratch/TryCompile-8s50mx'
+        Change Dir: 'C:/Users/awj12/OneDrive/바탕 화면/대학교/GitHub/LC-3Emulator/build/CMakeFiles/CMakeScratch/TryCompile-79plae'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_adcb8.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_88b72.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         .NET Framework용 Microsoft (R) Build Engine 버전 17.2.1+52cd2da31
         Copyright (C) Microsoft Corporation. All rights reserved.
         
-        빌드 시작: 2024-10-23 오후 8:50:17
-        1 노드의 "C:\\Users\\awj12\\OneDrive\\바탕 화면\\대학교\\GitHub\\LC-3Emulator\\build\\CMakeFiles\\CMakeScratch\\TryCompile-8s50mx\\cmTC_adcb8.vcxproj" 프로젝트(기본 대상)입니다.
+        빌드 시작: 2024-11-04 오전 4:51:19
+        1 노드의 "C:\\Users\\awj12\\OneDrive\\바탕 화면\\대학교\\GitHub\\LC-3Emulator\\build\\CMakeFiles\\CMakeScratch\\TryCompile-79plae\\cmTC_88b72.vcxproj" 프로젝트(기본 대상)입니다.
         PrepareForBuild:
-          "cmTC_adcb8.dir\\Debug\\" 디렉터리를 만들고 있습니다.
-          "C:\\Users\\awj12\\OneDrive\\바탕 화면\\대학교\\GitHub\\LC-3Emulator\\build\\CMakeFiles\\CMakeScratch\\TryCompile-8s50mx\\Debug\\" 디렉터리를 만들고 있습니다.
-          "cmTC_adcb8.dir\\Debug\\cmTC_adcb8.tlog\\" 디렉터리를 만들고 있습니다.
+          "cmTC_88b72.dir\\Debug\\" 디렉터리를 만들고 있습니다.
+          "C:\\Users\\awj12\\OneDrive\\바탕 화면\\대학교\\GitHub\\LC-3Emulator\\build\\CMakeFiles\\CMakeScratch\\TryCompile-79plae\\Debug\\" 디렉터리를 만들고 있습니다.
+          "cmTC_88b72.dir\\Debug\\cmTC_88b72.tlog\\" 디렉터리를 만들고 있습니다.
         InitializeBuildStatus:
-          "AlwaysCreate"이(가) 지정되었기 때문에 "cmTC_adcb8.dir\\Debug\\cmTC_adcb8.tlog\\unsuccessfulbuild"을(를) 만들고 있습니다.
+          "AlwaysCreate"이(가) 지정되었기 때문에 "cmTC_88b72.dir\\Debug\\cmTC_88b72.tlog\\unsuccessfulbuild"을(를) 만들고 있습니다.
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.32.31326\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_adcb8.dir\\Debug\\\\" /Fd"cmTC_adcb8.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.31\\Modules\\CMakeCCompilerABI.c"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.32.31326\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_88b72.dir\\Debug\\\\" /Fd"cmTC_88b72.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.31\\Modules\\CMakeCCompilerABI.c"
           Microsoft (R) C/C++ 최적화 컴파일러 버전 19.32.31329(x64)
-          Copyright (c) Microsoft Corporation. All rights reserved.
           CMakeCCompilerABI.c
-          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_adcb8.dir\\Debug\\\\" /Fd"cmTC_adcb8.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.31\\Modules\\CMakeCCompilerABI.c"
+          Copyright (c) Microsoft Corporation. All rights reserved.
+          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_88b72.dir\\Debug\\\\" /Fd"cmTC_88b72.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.31\\Modules\\CMakeCCompilerABI.c"
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.32.31326\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\awj12\\OneDrive\\바탕 화면\\대학교\\GitHub\\LC-3Emulator\\build\\CMakeFiles\\CMakeScratch\\TryCompile-8s50mx\\Debug\\cmTC_adcb8.exe" /INCREMENTAL /ILK:"cmTC_adcb8.dir\\Debug\\cmTC_adcb8.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/awj12/OneDrive/바탕 화면/대학교/GitHub/LC-3Emulator/build/CMakeFiles/CMakeScratch/TryCompile-8s50mx/Debug/cmTC_adcb8.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/awj12/OneDrive/바탕 화면/대학교/GitHub/LC-3Emulator/build/CMakeFiles/CMakeScratch/TryCompile-8s50mx/Debug/cmTC_adcb8.lib" /MACHINE:X64  /machine:x64 cmTC_adcb8.dir\\Debug\\CMakeCCompilerABI.obj
-          cmTC_adcb8.vcxproj -> C:\\Users\\awj12\\OneDrive\\바탕 화면\\대학교\\GitHub\\LC-3Emulator\\build\\CMakeFiles\\CMakeScratch\\TryCompile-8s50mx\\Debug\\cmTC_adcb8.exe
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.32.31326\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\awj12\\OneDrive\\바탕 화면\\대학교\\GitHub\\LC-3Emulator\\build\\CMakeFiles\\CMakeScratch\\TryCompile-79plae\\Debug\\cmTC_88b72.exe" /INCREMENTAL /ILK:"cmTC_88b72.dir\\Debug\\cmTC_88b72.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/awj12/OneDrive/바탕 화면/대학교/GitHub/LC-3Emulator/build/CMakeFiles/CMakeScratch/TryCompile-79plae/Debug/cmTC_88b72.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/awj12/OneDrive/바탕 화면/대학교/GitHub/LC-3Emulator/build/CMakeFiles/CMakeScratch/TryCompile-79plae/Debug/cmTC_88b72.lib" /MACHINE:X64  /machine:x64 cmTC_88b72.dir\\Debug\\CMakeCCompilerABI.obj
+          cmTC_88b72.vcxproj -> C:\\Users\\awj12\\OneDrive\\바탕 화면\\대학교\\GitHub\\LC-3Emulator\\build\\CMakeFiles\\CMakeScratch\\TryCompile-79plae\\Debug\\cmTC_88b72.exe
         FinalizeBuildStatus:
-          "cmTC_adcb8.dir\\Debug\\cmTC_adcb8.tlog\\unsuccessfulbuild" 파일을 삭제하고 있습니다.
-          "cmTC_adcb8.dir\\Debug\\cmTC_adcb8.tlog\\cmTC_adcb8.lastbuildstate"에 연결(touching)하고 있습니다.
-        "C:\\Users\\awj12\\OneDrive\\바탕 화면\\대학교\\GitHub\\LC-3Emulator\\build\\CMakeFiles\\CMakeScratch\\TryCompile-8s50mx\\cmTC_adcb8.vcxproj" 프로젝트를 빌드했습니다(기본 대상).
+          "cmTC_88b72.dir\\Debug\\cmTC_88b72.tlog\\unsuccessfulbuild" 파일을 삭제하고 있습니다.
+          "cmTC_88b72.dir\\Debug\\cmTC_88b72.tlog\\cmTC_88b72.lastbuildstate"에 연결(touching)하고 있습니다.
+        "C:\\Users\\awj12\\OneDrive\\바탕 화면\\대학교\\GitHub\\LC-3Emulator\\build\\CMakeFiles\\CMakeScratch\\TryCompile-79plae\\cmTC_88b72.vcxproj" 프로젝트를 빌드했습니다(기본 대상).
         
         빌드했습니다.
             경고 0개
             오류 0개
         
-        경과 시간: 00:00:00.74
+        경과 시간: 00:00:00.77
         
       exitCode: 0
   -
@@ -207,8 +207,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "C:/Users/awj12/OneDrive/\ubc14\ud0d5 \ud654\uba74/\ub300\ud559\uad50/GitHub/LC-3Emulator/build/CMakeFiles/CMakeScratch/TryCompile-f2mvwu"
-      binary: "C:/Users/awj12/OneDrive/\ubc14\ud0d5 \ud654\uba74/\ub300\ud559\uad50/GitHub/LC-3Emulator/build/CMakeFiles/CMakeScratch/TryCompile-f2mvwu"
+      source: "C:/Users/awj12/OneDrive/\ubc14\ud0d5 \ud654\uba74/\ub300\ud559\uad50/GitHub/LC-3Emulator/build/CMakeFiles/CMakeScratch/TryCompile-4ketcq"
+      binary: "C:/Users/awj12/OneDrive/\ubc14\ud0d5 \ud654\uba74/\ub300\ud559\uad50/GitHub/LC-3Emulator/build/CMakeFiles/CMakeScratch/TryCompile-4ketcq"
     cmakeVariables:
       CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /W3 /GR /EHsc"
       CMAKE_CXX_FLAGS_DEBUG: "/MDd /Zi /Ob0 /Od /RTC1"
@@ -218,33 +218,33 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/awj12/OneDrive/바탕 화면/대학교/GitHub/LC-3Emulator/build/CMakeFiles/CMakeScratch/TryCompile-f2mvwu'
+        Change Dir: 'C:/Users/awj12/OneDrive/바탕 화면/대학교/GitHub/LC-3Emulator/build/CMakeFiles/CMakeScratch/TryCompile-4ketcq'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_53407.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_1cd06.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         .NET Framework용 Microsoft (R) Build Engine 버전 17.2.1+52cd2da31
         Copyright (C) Microsoft Corporation. All rights reserved.
         
-        빌드 시작: 2024-10-23 오후 8:50:18
-        1 노드의 "C:\\Users\\awj12\\OneDrive\\바탕 화면\\대학교\\GitHub\\LC-3Emulator\\build\\CMakeFiles\\CMakeScratch\\TryCompile-f2mvwu\\cmTC_53407.vcxproj" 프로젝트(기본 대상)입니다.
+        빌드 시작: 2024-11-04 오전 4:51:20
+        1 노드의 "C:\\Users\\awj12\\OneDrive\\바탕 화면\\대학교\\GitHub\\LC-3Emulator\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4ketcq\\cmTC_1cd06.vcxproj" 프로젝트(기본 대상)입니다.
         PrepareForBuild:
-          "cmTC_53407.dir\\Debug\\" 디렉터리를 만들고 있습니다.
-          "C:\\Users\\awj12\\OneDrive\\바탕 화면\\대학교\\GitHub\\LC-3Emulator\\build\\CMakeFiles\\CMakeScratch\\TryCompile-f2mvwu\\Debug\\" 디렉터리를 만들고 있습니다.
-          "cmTC_53407.dir\\Debug\\cmTC_53407.tlog\\" 디렉터리를 만들고 있습니다.
+          "cmTC_1cd06.dir\\Debug\\" 디렉터리를 만들고 있습니다.
+          "C:\\Users\\awj12\\OneDrive\\바탕 화면\\대학교\\GitHub\\LC-3Emulator\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4ketcq\\Debug\\" 디렉터리를 만들고 있습니다.
+          "cmTC_1cd06.dir\\Debug\\cmTC_1cd06.tlog\\" 디렉터리를 만들고 있습니다.
         InitializeBuildStatus:
-          "AlwaysCreate"이(가) 지정되었기 때문에 "cmTC_53407.dir\\Debug\\cmTC_53407.tlog\\unsuccessfulbuild"을(를) 만들고 있습니다.
+          "AlwaysCreate"이(가) 지정되었기 때문에 "cmTC_1cd06.dir\\Debug\\cmTC_1cd06.tlog\\unsuccessfulbuild"을(를) 만들고 있습니다.
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.32.31326\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_53407.dir\\Debug\\\\" /Fd"cmTC_53407.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.31\\Modules\\CMakeCXXCompilerABI.cpp"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.32.31326\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_1cd06.dir\\Debug\\\\" /Fd"cmTC_1cd06.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.31\\Modules\\CMakeCXXCompilerABI.cpp"
           Microsoft (R) C/C++ 최적화 컴파일러 버전 19.32.31329(x64)
-          CMakeCXXCompilerABI.cpp
           Copyright (c) Microsoft Corporation. All rights reserved.
-          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_53407.dir\\Debug\\\\" /Fd"cmTC_53407.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.31\\Modules\\CMakeCXXCompilerABI.cpp"
+          CMakeCXXCompilerABI.cpp
+          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_1cd06.dir\\Debug\\\\" /Fd"cmTC_1cd06.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.31\\Modules\\CMakeCXXCompilerABI.cpp"
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.32.31326\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\awj12\\OneDrive\\바탕 화면\\대학교\\GitHub\\LC-3Emulator\\build\\CMakeFiles\\CMakeScratch\\TryCompile-f2mvwu\\Debug\\cmTC_53407.exe" /INCREMENTAL /ILK:"cmTC_53407.dir\\Debug\\cmTC_53407.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/awj12/OneDrive/바탕 화면/대학교/GitHub/LC-3Emulator/build/CMakeFiles/CMakeScratch/TryCompile-f2mvwu/Debug/cmTC_53407.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/awj12/OneDrive/바탕 화면/대학교/GitHub/LC-3Emulator/build/CMakeFiles/CMakeScratch/TryCompile-f2mvwu/Debug/cmTC_53407.lib" /MACHINE:X64  /machine:x64 cmTC_53407.dir\\Debug\\CMakeCXXCompilerABI.obj
-          cmTC_53407.vcxproj -> C:\\Users\\awj12\\OneDrive\\바탕 화면\\대학교\\GitHub\\LC-3Emulator\\build\\CMakeFiles\\CMakeScratch\\TryCompile-f2mvwu\\Debug\\cmTC_53407.exe
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.32.31326\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\awj12\\OneDrive\\바탕 화면\\대학교\\GitHub\\LC-3Emulator\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4ketcq\\Debug\\cmTC_1cd06.exe" /INCREMENTAL /ILK:"cmTC_1cd06.dir\\Debug\\cmTC_1cd06.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/awj12/OneDrive/바탕 화면/대학교/GitHub/LC-3Emulator/build/CMakeFiles/CMakeScratch/TryCompile-4ketcq/Debug/cmTC_1cd06.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/awj12/OneDrive/바탕 화면/대학교/GitHub/LC-3Emulator/build/CMakeFiles/CMakeScratch/TryCompile-4ketcq/Debug/cmTC_1cd06.lib" /MACHINE:X64  /machine:x64 cmTC_1cd06.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_1cd06.vcxproj -> C:\\Users\\awj12\\OneDrive\\바탕 화면\\대학교\\GitHub\\LC-3Emulator\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4ketcq\\Debug\\cmTC_1cd06.exe
         FinalizeBuildStatus:
-          "cmTC_53407.dir\\Debug\\cmTC_53407.tlog\\unsuccessfulbuild" 파일을 삭제하고 있습니다.
-          "cmTC_53407.dir\\Debug\\cmTC_53407.tlog\\cmTC_53407.lastbuildstate"에 연결(touching)하고 있습니다.
-        "C:\\Users\\awj12\\OneDrive\\바탕 화면\\대학교\\GitHub\\LC-3Emulator\\build\\CMakeFiles\\CMakeScratch\\TryCompile-f2mvwu\\cmTC_53407.vcxproj" 프로젝트를 빌드했습니다(기본 대상).
+          "cmTC_1cd06.dir\\Debug\\cmTC_1cd06.tlog\\unsuccessfulbuild" 파일을 삭제하고 있습니다.
+          "cmTC_1cd06.dir\\Debug\\cmTC_1cd06.tlog\\cmTC_1cd06.lastbuildstate"에 연결(touching)하고 있습니다.
+        "C:\\Users\\awj12\\OneDrive\\바탕 화면\\대학교\\GitHub\\LC-3Emulator\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4ketcq\\cmTC_1cd06.vcxproj" 프로젝트를 빌드했습니다(기본 대상).
         
         빌드했습니다.
             경고 0개

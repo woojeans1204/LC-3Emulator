@@ -37,7 +37,40 @@
     <ClCompile Include="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\src\Simulator\Instructions\JmpInstruction.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\src\Simulator\Instructions\JsrInstruction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\src\Simulator\Instructions\JsrrInstruction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\src\Simulator\Instructions\LdInstruction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\src\Simulator\Instructions\LdiInstruction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\src\Simulator\Instructions\LdrInstruction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\src\Simulator\Instructions\LeaInstruction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\src\Simulator\Instructions\NotInstruction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\src\Simulator\Instructions\RtiInstruction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\src\Simulator\Instructions\StInstruction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\src\Simulator\Instructions\StiInstruction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\src\Simulator\Instructions\StrInstruction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\src\Simulator\Instructions\TrapInstruction.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\src\Simulator\LC3Emulator.cpp">

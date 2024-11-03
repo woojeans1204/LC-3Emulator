@@ -21,13 +21,15 @@ namespace Simulator
 
     void LC3Emulator::run()
     {
+        while (!isHalted())
+        {
+            uint16_t pc = regFile.readPC();
+            uint16_t instructionCode = memory.read(pc);
+            regFile.writePC(pc + 1); // PC 증가
 
-        uint16_t pc = regFile.readPC();
-        uint16_t instructionCode = memory.read(pc);
-        regFile.writePC(pc + 1); // PC 증가
-
-        auto instruction = decoder.decode(instructionCode);
-        instruction->execute(*this);
+            auto instruction = decoder.decode(instructionCode);
+            instruction->execute(*this);
+        }
     }
 
     void LC3Emulator::step()
