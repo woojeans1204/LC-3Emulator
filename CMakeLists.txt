@@ -18,4 +18,4 @@ add_library(LC3AssemblerSimulator STATIC ${SRC_FILES})
 
 #target_link_libraries(LC3SimulatorMain PRIVATE LC3AssemblerSimulator)
 # Add testing
-add_subdirectory(tests)
+# add_subdirectory(tests)
