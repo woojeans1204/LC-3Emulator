@@ -27,7 +27,6 @@ namespace Simulator
         {
             uint16_t address = emulator.getRegisterFile().readPC() + pcOffset9;
             emulator.getRegisterFile().writeRegister(dr, address);
-            emulator.getRegisterFile().updateCOND(dr);
         }
 
     } // namespace Instructions

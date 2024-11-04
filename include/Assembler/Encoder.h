@@ -64,8 +64,7 @@ namespace Assembler
         unsigned short encodeHalt();
 
     private:
-        int
-        getRegisterNumber(const std::string &reg) const;
+        int getRegisterNumber(const std::string &reg) const;
     };
 
 } // namespace Assembler

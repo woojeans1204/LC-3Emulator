@@ -19,11 +19,14 @@ namespace Assembler
     {
     public:
         Parser(SymbolTable &symTable);
+
         bool hasNext() const;
         ParsedLine getNext();
+
+        void parseSource(const std::string &sourceCode);
+
         void initLine();
         ParsedLine searchLine(size_t t);
-        void parseSource(const std::string &sourceCode);
         void printLines();
 
     private:

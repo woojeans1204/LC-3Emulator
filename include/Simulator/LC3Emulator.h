@@ -13,16 +13,15 @@ namespace Simulator
     public:
         LC3Emulator();
         ~LC3Emulator() = default;
-        RegisterFile &getRegisterFile();
 
+        RegisterFile &getRegisterFile();
         Memory &getMemory();
 
+        void LC3Emulator::loadProgram(const std::vector<std::pair<uint16_t, uint16_t>> &program);
         void run();
         void step();
 
-        void LC3Emulator::loadProgram(const std::vector<std::pair<uint16_t, uint16_t>> &program);
         void halt();
-
         bool isHalted() const;
 
     private:

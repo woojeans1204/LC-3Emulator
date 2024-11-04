@@ -211,7 +211,7 @@ namespace Assembler
             throw std::invalid_argument("PCoffset9 out of range (-256 ~ +255): " + std::to_string(pcOffset9));
         }
 
-        unsigned short pcOffset9Bits = pcOffset9 & 0x1FF;
+        unsigned short pcOffset9Bits = static_cast<unsigned short>(pcOffset9 & 0x1FF);
         opcode |= pcOffset9Bits;
 
         return opcode;
@@ -232,7 +232,7 @@ namespace Assembler
             throw std::invalid_argument("PCoffset9 out of range (-256 ~ +255): " + std::to_string(pcOffset9));
         }
 
-        unsigned short pcOffset9Bits = pcOffset9 & 0x1FF;
+        unsigned short pcOffset9Bits = static_cast<unsigned short>(pcOffset9 & 0x1FF);
         opcode |= pcOffset9Bits;
 
         return opcode;
@@ -257,7 +257,7 @@ namespace Assembler
             throw std::invalid_argument("pcOffset6 out of range (-32 ~ +31): " + std::to_string(pcOffset6));
         }
 
-        unsigned short pcOffset6Bits = pcOffset6 & 0x1FF;
+        unsigned short pcOffset6Bits = static_cast<unsigned short>(pcOffset6 & 0x3F);
         opcode |= pcOffset6Bits;
 
         return opcode;
@@ -278,7 +278,7 @@ namespace Assembler
             throw std::invalid_argument("PCoffset9 out of range (-256 ~ +255): " + std::to_string(pcOffset9));
         }
 
-        unsigned short pcOffset9Bits = pcOffset9 & 0x1FF;
+        unsigned short pcOffset9Bits = static_cast<unsigned short>(pcOffset9 & 0x1FF);
         opcode |= pcOffset9Bits;
 
         return opcode;

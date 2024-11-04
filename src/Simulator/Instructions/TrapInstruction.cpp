@@ -20,9 +20,6 @@ namespace Simulator
 
         void TrapInstruction::execute(LC3Emulator &emulator)
         {
-            // 현재 PC를 R7에 저장
-            emulator.getRegisterFile().writeRegister(7, emulator.getRegisterFile().readPC());
-
             switch (trapvect8)
             {
             case 0x20: // GETC
@@ -79,7 +76,8 @@ namespace Simulator
             }
             case 0x25: // HALT
             {
-                std::cout << "HALT" << std::endl;
+                std::cout << "\n\n--- Halting the LC-3 ---\n\n"
+                          << std::endl;
                 emulator.halt();
                 break;
             }
@@ -90,9 +88,6 @@ namespace Simulator
                 break;
             }
             }
-
-            // PC 업데이트
-            emulator.getRegisterFile().writePC(emulator.getRegisterFile().readRegister(7) + 1); // TRAP 이후 PC는 R7 + 1
         }
 
     } // namespace Instructions

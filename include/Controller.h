@@ -11,6 +11,8 @@ public:
     Controller();
     ~Controller() = default;
     void assembleAndRun(const std::string &sourceFilePath, const std::string &objfilePath, bool debugMode = false);
+    unsigned short readMemory(unsigned short n);
+    unsigned short readRegister(unsigned short n);
 
 private:
     Assembler::Assembler assembler;
