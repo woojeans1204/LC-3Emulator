@@ -50,7 +50,6 @@ namespace Assembler
         {
             throw std::runtime_error("Failed to open output file: " + outputFilePath);
         }
-
         int currentAddress = 0;
         ParsedLine currentParsed;
         parser.initLine();
@@ -60,7 +59,6 @@ namespace Assembler
         while (parser.hasNext())
         {
             currentParsed = parser.getNext();
-
             // ORIG 처리
             if (currentParsed.opcode == ".ORIG")
             {
@@ -70,8 +68,8 @@ namespace Assembler
                     throw std::invalid_argument(".ORIG requires an operand.");
                 std::string operand = currentParsed.operands[0];
                 hasAddress = true;
-                currentAddress = parseImmediate(operand, 16); // 주소는 16비트
-                continue;                                     // .ORIG은 주소 설정만 하고 넘어감
+                currentAddress = parseImmediate(operand, 16, false); // 주소는 16비트
+                continue;                                            // .ORIG은 주소 설정만 하고 넘어감
             }
 
             if (!hasAddress)
@@ -115,7 +113,10 @@ namespace Assembler
                 }
                 else
                 {
-                    value = parseImmediate(operand, 16);
+                    if (operand[0] == '-')
+                        value = parseImmediate(operand, 16);
+                    else
+                        value = parseImmediate(operand, 16, false);
                 }
 
                 machineCode = static_cast<unsigned short>(value & 0xFFFF);
@@ -129,7 +130,7 @@ namespace Assembler
                     throw std::invalid_argument("'.BLKW' requires exactly one operand.");
                 }
                 std::string operand = currentParsed.operands[0];
-                int numWords = parseImmediate(operand, 16);
+                int numWords = parseImmediate(operand, 16, false);
 
                 for (int i = 0; i < numWords; ++i)
                 {
@@ -423,47 +424,122 @@ namespace Assembler
         outputFile.close();
     }
 
-    int Assembler::parseImmediate(const std::string &operand, int bitCount)
+    int Assembler::parseImmediate(const std::string &operand, int bitCount, bool isSigned)
     {
         int value;
         std::string numStr = operand;
 
-        // 접두사 처리
-        if (operand[0] == '#')
+        // Helper lambda to perform range checking
+        auto checkRange = [&](int val, int minVal, int maxVal, const std::string &operand) -> void
         {
-            numStr = operand.substr(1);
-            value = std::stoi(numStr, nullptr, 10);
-        }
-        else if (operand[0] == 'x' || operand[0] == 'X')
+            if (val < minVal || val > maxVal)
+            {
+                std::ostringstream oss;
+                oss << "Immediate value out of range (" << minVal << " ~ " << maxVal << "): " << val;
+                throw std::invalid_argument(oss.str());
+            }
+        };
+
+        if (isSigned)
         {
-            numStr = operand.substr(1);
-            value = std::stoi(numStr, nullptr, 16);
-        }
-        else if (operand[0] == 'b' || operand[0] == 'B')
-        {
-            numStr = operand.substr(1);
-            value = std::stoi(numStr, nullptr, 2);
-        }
-        else if (operand[0] == '-' || isdigit(operand[0]))
-        {
-            value = std::stoi(numStr, nullptr, 10);
+            // Signed immediate parsing
+            if (operand.empty())
+            {
+                throw std::invalid_argument("Empty immediate operand.");
+            }
+
+            if (operand[0] == '#')
+            {
+                // Decimal immediate (e.g., #10)
+                numStr = operand.substr(1);
+                if (numStr.empty())
+                    throw std::invalid_argument("Invalid immediate value: " + operand);
+                value = std::stoi(numStr, nullptr, 10);
+            }
+            else if (operand[0] == 'x' || operand[0] == 'X')
+            {
+                // Hexadecimal immediate (e.g., x1A)
+                numStr = operand.substr(1);
+                if (numStr.empty())
+                    throw std::invalid_argument("Invalid immediate value: " + operand);
+                value = std::stoi(numStr, nullptr, 16);
+            }
+            else if (operand[0] == 'b' || operand[0] == 'B')
+            {
+                // Binary immediate (e.g., b1010)
+                numStr = operand.substr(1);
+                if (numStr.empty())
+                    throw std::invalid_argument("Invalid immediate value: " + operand);
+                value = std::stoi(numStr, nullptr, 2);
+            }
+            else if (operand[0] == '-' || std::isdigit(operand[0]))
+            {
+                // Decimal immediate without '#' (e.g., -10 or 10)
+                value = std::stoi(numStr, nullptr, 10);
+            }
+            else
+            {
+                throw std::invalid_argument("Invalid immediate value: " + operand);
+            }
+
+            // Range checking for signed immediate
+            int minValue = -(1 << (bitCount - 1));
+            int maxValue = (1 << (bitCount - 1)) - 1;
+            checkRange(value, minValue, maxValue, operand);
+
+            return value;
         }
         else
         {
-            throw std::invalid_argument("Invalid immediate value: " + operand);
-        }
+            // Unsigned immediate parsing
+            if (operand.empty())
+            {
+                throw std::invalid_argument("Empty immediate operand.");
+            }
 
-        // 범위 체크
-        int minValue = -(1 << (bitCount - 1));
-        int maxValue = (1 << (bitCount - 1)) - 1;
-        if (value < minValue || value > maxValue)
-        {
-            std::ostringstream oss;
-            oss << "Immediate value out of range (" << minValue << " ~ " << maxValue << "): " << value;
-            throw std::invalid_argument(oss.str());
-        }
+            if (operand[0] == '#')
+            {
+                // Decimal immediate (e.g., #10)
+                numStr = operand.substr(1);
+                if (numStr.empty())
+                    throw std::invalid_argument("Invalid immediate value: " + operand);
+                if (numStr[0] == '-')
+                    throw std::invalid_argument("Negative immediate value not allowed for unsigned immediate: " + operand);
+                value = std::stoi(numStr, nullptr, 10);
+            }
+            else if (operand[0] == 'x' || operand[0] == 'X')
+            {
+                // Hexadecimal immediate (e.g., x1A)
+                numStr = operand.substr(1);
+                if (numStr.empty())
+                    throw std::invalid_argument("Invalid immediate value: " + operand);
+                value = std::stoi(numStr, nullptr, 16);
+            }
+            else if (operand[0] == 'b' || operand[0] == 'B')
+            {
+                // Binary immediate (e.g., b1010)
+                numStr = operand.substr(1);
+                if (numStr.empty())
+                    throw std::invalid_argument("Invalid immediate value: " + operand);
+                value = std::stoi(numStr, nullptr, 2);
+            }
+            else if (std::isdigit(operand[0]))
+            {
+                // Decimal immediate without '#' (e.g., 10)
+                value = std::stoi(numStr, nullptr, 10);
+            }
+            else
+            {
+                throw std::invalid_argument("Invalid immediate value: " + operand);
+            }
 
-        return value;
+            // Range checking for unsigned immediate
+            int minValue = 0;
+            int maxValue = (1 << bitCount) - 1;
+            checkRange(value, minValue, maxValue, operand);
+
+            return value;
+        }
     }
 
     int Assembler::computePCOffset(int currentAddress, const std::string &label, int bitCount)

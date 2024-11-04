@@ -30,7 +30,7 @@ namespace Simulator
             uint16_t address2 = emulator.getMemory().read(address1);
             uint16_t value = emulator.getMemory().read(address2);
             emulator.getRegisterFile().writeRegister(dr, value);
-            emulator.getRegisterFile().writePC(dr);
+            emulator.getRegisterFile().updateCOND(value);
         }
 
     } // namespace Instructions

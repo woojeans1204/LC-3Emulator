@@ -42,14 +42,14 @@ namespace Simulator
             return std::make_unique<Instructions::StInstruction>(instructionCode);
         case 0x4: // JSR / JSRR
         {
-            bool isJsrr = ((instructionCode >> 11) & 0x1) == 1;
-            if (isJsrr)
+            bool isJsr = ((instructionCode >> 11) & 0x1) == 1;
+            if (isJsr)
             {
-                return std::make_unique<Instructions::JsrrInstruction>(instructionCode);
+                return std::make_unique<Instructions::JsrInstruction>(instructionCode);
             }
             else
             {
-                return std::make_unique<Instructions::JsrInstruction>(instructionCode);
+                return std::make_unique<Instructions::JsrrInstruction>(instructionCode);
             }
         }
         case 0x5: // AND

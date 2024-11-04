@@ -71,6 +71,16 @@ void Controller::loadObjectCodeToEmulator(const std::string &objfilePath)
     emulator.loadProgram(objectCode);
 }
 
+unsigned short Controller::readMemory(unsigned short n)
+{
+    return emulator.getMemory().read(n);
+}
+
+unsigned short Controller::readRegister(unsigned short n)
+{
+    return emulator.getRegisterFile().readRegister(n);
+}
+
 void Controller::runEmulator(bool debugMode)
 {
     if (debugMode)
@@ -105,9 +115,32 @@ void Controller::runEmulator(bool debugMode)
     std::cout << "Final Register State:" << std::endl;
     for (int i = 0; i < 8; ++i)
     {
-        std::cout << "R" << i << ": 0x" << std::hex << emulator.getRegisterFile().readRegister(i) << " ";
+        printf("R%d: x%.4x ", i, emulator.getRegisterFile().readRegister(i));
         if (i % 4 == 3)
             std::cout << std::endl;
     }
-    std::cout << "COND: " << emulator.getRegisterFile().getCOND() << std::endl;
+    std::cout << "COND: " << emulator.getRegisterFile().getCOND() << "\n\n";
+
+    if (debugMode)
+    {
+        unsigned short readStart, readEnd;
+        std::string input;
+        while (true)
+        {
+            std::cout << "Reading memory address in hex from start to end (e.g., 3000 300A): ";
+            std::cin >> std::hex >> readStart >> readEnd;
+
+            // 메모리 주소 범위 출력
+            for (unsigned short i = readStart; i <= readEnd; i++)
+                printf("x%.4x: x%.4x\n", i, readMemory(i));
+
+            // 루프를 계속할지 종료할지 물어보기
+            std::cout << "Press Enter to continue or type anything else to quit: ";
+            std::cin.ignore(); // 이전 입력의 개행 문자 제거
+            std::getline(std::cin, input);
+
+            if (!input.empty())
+                break;
+        }
+    }
 }

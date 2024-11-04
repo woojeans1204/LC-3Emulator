@@ -27,7 +27,7 @@ namespace Assembler
         SymbolTable symTable;
         InstructionSet instrSet;
 
-        int Assembler::parseImmediate(const std::string &operand, int bitCount);
+        int Assembler::parseImmediate(const std::string &operand, int bitCount, bool isSigned = true);
         int Assembler::computePCOffset(int currentAddress, const std::string &label, int bitCount);
     };
 

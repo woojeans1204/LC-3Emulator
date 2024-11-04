@@ -1,7 +1,7 @@
 // src/Assembler/Parser.cpp
 #include "Assembler/Parser.h"
 #include "Assembler/Keyword.h" // 명령어, 지시어, 레지스터 목록 포함
-
+#include <algorithm>
 #include <iostream>
 #include <stdexcept>
 
@@ -35,9 +35,12 @@ namespace Assembler
     {
         std::vector<std::string> tokens;
         std::string token;
-        for (size_t i = 0; i <= str.size(); ++i)
+        bool isString = false;
+        for (size_t i = 0; i < str.size(); ++i)
         {
-            if (i == str.size() || isSpace(str[i]) || str[i] == ',')
+            if (str[i] == '"')
+                isString = !isString;
+            if (!isString && (isSpace(str[i]) || str[i] == ','))
             {
                 if (!token.empty())
                 {
@@ -45,10 +48,17 @@ namespace Assembler
                     token.clear();
                 }
             }
+            else if (!isString && str[i] == ';')
+                break;
             else
             {
                 token += str[i];
             }
+        }
+        if (!token.empty())
+        {
+            tokens.push_back(token);
+            token.clear();
         }
         return tokens;
     }
@@ -109,13 +119,6 @@ namespace Assembler
             }
             std::string line = sourceCode.substr(pos, endPos - pos);
             pos = endPos + 1;
-
-            // 주석 제거
-            size_t commentPos = line.find(';');
-            if (commentPos != std::string::npos)
-            {
-                line = line.substr(0, commentPos);
-            }
 
             // 좌우 공백 제거
             line = trim(line);
@@ -207,7 +210,11 @@ namespace Assembler
                         {
                             throw std::invalid_argument(".BLKW requires an operand");
                         }
-                        int numWords = std::stoi(parsed.operands[0]);
+                        int numWords;
+                        if (parsed.operands[0][0] == 'x' || parsed.operands[0][0] == 'X')
+                            numWords = std::stoi(parsed.operands[0].substr(1), nullptr, 16);
+                        else
+                            numWords = std::stoi(parsed.operands[0]);
                         currentAddress += numWords;
                     }
                     else if (parsed.opcode == ".STRINGZ")
@@ -242,8 +249,6 @@ namespace Assembler
                 }
                 else if (parsed.opcode == ".END")
                 {
-                    // .END는 어셈블링을 종료
-                    break;
                 }
                 else
                 {

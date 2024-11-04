@@ -14,7 +14,6 @@ namespace Simulator
         ~Memory() = default;
 
         uint16_t read(uint16_t address) const;
-
         void write(uint16_t address, uint16_t value);
 
     private:

@@ -1,6 +1,6 @@
 // src/Simulator/LC3Emulator.cpp
 #include "Simulator/LC3Emulator.h"
-
+#include <iostream>
 namespace Simulator
 {
 
@@ -37,6 +37,7 @@ namespace Simulator
 
         uint16_t pc = regFile.readPC();
         uint16_t instructionCode = memory.read(pc);
+        // std::cout << std::hex << "PC: " << pc << ", ObjectCode: " << instructionCode << '\n';
         regFile.writePC(pc + 1); // PC 증가
 
         auto instruction = decoder.decode(instructionCode);
