@@ -13,6 +13,11 @@ namespace Assembler
     {
     }
 
+    void Assembler::reset()
+    {
+        symTable.reset();
+        parser.reset();
+    }
     void Assembler::assemble(const std::string &inputFilePath, const std::string &outputFilePath)
     {
         // 1차 패스: 라벨 수집

@@ -3,7 +3,7 @@
 
 #include <string>
 #include <vector>
-#include "Assembler/SymbolTable.h"
+#include "SymbolTable.h"
 
 namespace Assembler
 {
@@ -19,7 +19,7 @@ namespace Assembler
     {
     public:
         Parser(SymbolTable &symTable);
-
+        void reset();
         bool hasNext() const;
         ParsedLine getNext();
 

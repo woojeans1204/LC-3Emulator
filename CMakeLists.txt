@@ -1,8 +1,8 @@
 
 cmake_minimum_required(VERSION 3.10)
 project(LC3AssemblerSimulator)
-
 set(CMAKE_CXX_STANDARD 17)
+
 # Include directories
 include_directories(include)
 include_directories(include/Simulator)
@@ -18,4 +18,4 @@ add_library(LC3AssemblerSimulator STATIC ${SRC_FILES})
 
 #target_link_libraries(LC3SimulatorMain PRIVATE LC3AssemblerSimulator)
 # Add testing
-# add_subdirectory(tests)
+add_subdirectory(tests)

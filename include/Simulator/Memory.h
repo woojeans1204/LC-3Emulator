@@ -15,6 +15,7 @@ namespace Simulator
 
         uint16_t read(uint16_t address) const;
         void write(uint16_t address, uint16_t value);
+        void reset();
 
     private:
         static const size_t MEMORY_SIZE = 65536; // 2^16

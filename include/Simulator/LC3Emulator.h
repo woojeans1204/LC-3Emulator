@@ -17,10 +17,10 @@ namespace Simulator
         RegisterFile &getRegisterFile();
         Memory &getMemory();
 
-        void LC3Emulator::loadProgram(const std::vector<std::pair<uint16_t, uint16_t>> &program);
+        void loadProgram(const std::vector<std::pair<uint16_t, uint16_t>> &program);
         void run();
         void step();
-
+        void reset();
         void halt();
         bool isHalted() const;
 

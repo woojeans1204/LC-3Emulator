@@ -43,4 +43,8 @@ namespace Assembler
         std::cout << "-----------------------\n";
     }
 
+    void SymbolTable::reset()
+    {
+        table.clear();
+    }
 } // namespace Assembler

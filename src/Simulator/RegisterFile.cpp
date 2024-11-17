@@ -9,6 +9,13 @@ namespace Simulator
         registers.fill(0);
     }
 
+    void RegisterFile::reset()
+    {
+        registers.fill(0);
+        writePC(0x3000); // default
+        updateCOND(0);
+    }
+
     void RegisterFile::validateRegisterNumber(size_t regNumber) const
     {
         if (regNumber >= NUM_REGISTERS)

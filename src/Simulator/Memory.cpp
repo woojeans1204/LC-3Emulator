@@ -11,6 +11,12 @@ namespace Simulator
         memory.fill(0);
     }
 
+    void Memory::reset()
+    {
+        // 메모리를 0으로 초기화
+        memory.fill(0);
+    }
+
     uint16_t Memory::read(uint16_t address) const
     {
         if (address >= MEMORY_SIZE)

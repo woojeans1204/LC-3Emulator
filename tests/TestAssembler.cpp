@@ -3,16 +3,14 @@
 #include <fstream>
 #include <vector>
 #include <cassert>
-#include <filesystem> // C++17 이상 필요
 #include "Assembler/Assembler.h"
 
 int main()
 {
     // 테스트 디렉토리 설정
-    std::filesystem::path testDir = "tests/Debug";
-    std::filesystem::create_directories(testDir); // 디렉토리 생성
-    std::filesystem::path inputFile = testDir / "input.asm";
-    std::filesystem::path outputFile = testDir / "output.obj";
+    std::string testDir = "tests/Debug";
+    std::string inputFile = testDir + "/input.asm";
+    std::string outputFile = testDir + "/output.obj";
 
     // 어셈블리 코드 준비 (더 많은 명령어 포함)
     std::string assemblyCode = R"(
@@ -78,7 +76,7 @@ SUBROUTINE
     Assembler::Assembler assembler;
     try
     {
-        assembler.assemble(inputFile.string(), outputFile.string());
+        assembler.assemble(inputFile, outputFile);
     }
     catch (const std::exception &e)
     {

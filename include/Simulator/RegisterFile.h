@@ -14,6 +14,8 @@ namespace Simulator
         RegisterFile();
         ~RegisterFile() = default;
 
+        void reset();
+
         uint16_t readRegister(size_t regNumber) const;
 
         void writeRegister(size_t regNumber, uint16_t value);

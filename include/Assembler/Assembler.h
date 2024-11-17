@@ -21,14 +21,15 @@ namespace Assembler
         void assemble(const std::string &inputFilePath, const std::string &outputFilePath);
         void firstPass(const std::string &inputFilePath);
         void secondPass(const std::string &outputFilePath);
+        void reset();
 
     private:
         Parser parser;
         SymbolTable symTable;
         InstructionSet instrSet;
 
-        int Assembler::parseImmediate(const std::string &operand, int bitCount, bool isSigned = true);
-        int Assembler::computePCOffset(int currentAddress, const std::string &label, int bitCount);
+        int parseImmediate(const std::string &operand, int bitCount, bool isSigned = true);
+        int computePCOffset(int currentAddress, const std::string &label, int bitCount);
     };
 
 } // namespace Assembler

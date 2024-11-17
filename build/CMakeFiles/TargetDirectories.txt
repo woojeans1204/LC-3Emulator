@@ -1,6 +1,6 @@
 C:/Users/awj12/OneDrive/바탕 화면/대학교/GitHub/LC-3Emulator/build/CMakeFiles/LC3AssemblerSimulator.dir
-C:/Users/awj12/OneDrive/바탕 화면/대학교/GitHub/LC-3Emulator/build/CMakeFiles/ALL_BUILD.dir
-C:/Users/awj12/OneDrive/바탕 화면/대학교/GitHub/LC-3Emulator/build/CMakeFiles/ZERO_CHECK.dir
+C:/Users/awj12/OneDrive/바탕 화면/대학교/GitHub/LC-3Emulator/build/CMakeFiles/edit_cache.dir
+C:/Users/awj12/OneDrive/바탕 화면/대학교/GitHub/LC-3Emulator/build/CMakeFiles/rebuild_cache.dir
 C:/Users/awj12/OneDrive/바탕 화면/대학교/GitHub/LC-3Emulator/build/tests/CMakeFiles/TestAssembler.dir
 C:/Users/awj12/OneDrive/바탕 화면/대학교/GitHub/LC-3Emulator/build/tests/CMakeFiles/TestController.dir
 C:/Users/awj12/OneDrive/바탕 화면/대학교/GitHub/LC-3Emulator/build/tests/CMakeFiles/TestEncoder.dir
@@ -9,4 +9,5 @@ C:/Users/awj12/OneDrive/바탕 화면/대학교/GitHub/LC-3Emulator/build/tests/
 C:/Users/awj12/OneDrive/바탕 화면/대학교/GitHub/LC-3Emulator/build/tests/CMakeFiles/TestParser.dir
 C:/Users/awj12/OneDrive/바탕 화면/대학교/GitHub/LC-3Emulator/build/tests/CMakeFiles/TestRegisterFile.dir
 C:/Users/awj12/OneDrive/바탕 화면/대학교/GitHub/LC-3Emulator/build/tests/CMakeFiles/TestSymbolTable.dir
-C:/Users/awj12/OneDrive/바탕 화면/대학교/GitHub/LC-3Emulator/build/tests/CMakeFiles/ALL_BUILD.dir
+C:/Users/awj12/OneDrive/바탕 화면/대학교/GitHub/LC-3Emulator/build/tests/CMakeFiles/edit_cache.dir
+C:/Users/awj12/OneDrive/바탕 화면/대학교/GitHub/LC-3Emulator/build/tests/CMakeFiles/rebuild_cache.dir

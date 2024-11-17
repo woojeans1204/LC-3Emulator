@@ -7,7 +7,12 @@
 
 namespace Assembler
 {
-
+    void Parser::reset()
+    {
+        currentLine = 0;
+        lines.clear();
+        symbolTable.reset();
+    }
     // 공백 문자인지 확인하는 함수
     bool isSpace(char ch)
     {

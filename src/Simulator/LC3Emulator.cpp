@@ -19,6 +19,13 @@ namespace Simulator
         return memory;
     }
 
+    void LC3Emulator::reset()
+    {
+        halted = false;
+        getMemory().reset();
+        getRegisterFile().reset();
+    }
+
     void LC3Emulator::run()
     {
         while (!isHalted())

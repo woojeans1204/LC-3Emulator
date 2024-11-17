@@ -17,6 +17,7 @@ namespace Assembler
         bool contains(const std::string &label) const;
         int getAddress(const std::string &label) const;
         void printTable() const;
+        void reset();
 
     private:
         std::unordered_map<std::string, int> table;
