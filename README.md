@@ -114,7 +114,7 @@
 mkdir build
 cd build
 cmake ..
-make
+cmake --build .
 ```
 
 ### 실행
