@@ -262,7 +262,7 @@ CMakeFiles/LC3AssemblerSimulator.dir/src/Assembler/Encoder.cpp.obj: C:/Users/awj
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/stdint.h
 
 CMakeFiles/LC3AssemblerSimulator.dir/src/Assembler/Parser.cpp.obj: C:/Users/awj12/OneDrive/바탕\ 화면/대학교/GitHub/LC-3Emulator/src/Assembler/Parser.cpp \
-  C:/Users/awj12/OneDrive/바탕\ 화면/대학교/GitHub/LC-3Emulator/include/Assembler/Keyword.h \
+  C:/Users/awj12/OneDrive/바탕\ 화면/대학교/GitHub/LC-3Emulator/include/Assembler/keyword.h \
   C:/Users/awj12/OneDrive/바탕\ 화면/대학교/GitHub/LC-3Emulator/include/Assembler/Parser.h \
   C:/Users/awj12/OneDrive/바탕\ 화면/대학교/GitHub/LC-3Emulator/include/Assembler/SymbolTable.h \
   C:/MinGW/include/_mingw.h \
@@ -513,7 +513,7 @@ CMakeFiles/LC3AssemblerSimulator.dir/src/Assembler/SymbolTable.cpp.obj: C:/Users
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/stdint.h
 
 CMakeFiles/LC3AssemblerSimulator.dir/src/Assembler/keyword.cpp.obj: C:/Users/awj12/OneDrive/바탕\ 화면/대학교/GitHub/LC-3Emulator/src/Assembler/keyword.cpp \
-  C:/Users/awj12/OneDrive/바탕\ 화면/대학교/GitHub/LC-3Emulator/include/Assembler/Keyword.h \
+  C:/Users/awj12/OneDrive/바탕\ 화면/대학교/GitHub/LC-3Emulator/include/Assembler/keyword.h \
   C:/MinGW/include/_mingw.h \
   C:/MinGW/include/ctype.h \
   C:/MinGW/include/direct.h \
@@ -3551,7 +3551,7 @@ C:/Users/awj12/OneDrive/바탕\ 화면/대학교/GitHub/LC-3Emulator/src/Assembl
 
 C:/Users/awj12/OneDrive/바탕\ 화면/대학교/GitHub/LC-3Emulator/src/Assembler/Parser.cpp:
 
-C:/Users/awj12/OneDrive/바탕\ 화면/대학교/GitHub/LC-3Emulator/include/Assembler/Keyword.h:
+C:/Users/awj12/OneDrive/바탕\ 화면/대학교/GitHub/LC-3Emulator/include/Assembler/keyword.h:
 
 C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/algorithmfwd.h:
 

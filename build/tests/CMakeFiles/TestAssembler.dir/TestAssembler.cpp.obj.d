@@ -113,6 +113,8 @@ tests/CMakeFiles/TestAssembler.dir/TestAssembler.cpp.obj: \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\vector.tcc \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\cassert \
  c:\mingw\include\assert.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\sstream \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\sstream.tcc \
  C:/Users/awj12/OneDrive/1411~1/1038~1/GitHub/LC-3EM~1/include/Assembler/Assembler.h \
  C:/Users/awj12/OneDrive/1411~1/1038~1/GitHub/LC-3EM~1/include/Assembler/Parser.h \
  C:/Users/awj12/OneDrive/1411~1/1038~1/GitHub/LC-3EM~1/include/Assembler/SymbolTable.h \

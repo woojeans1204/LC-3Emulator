@@ -7,6 +7,7 @@ namespace Simulator
     RegisterFile::RegisterFile() : COND('Z')
     {
         registers.fill(0);
+        writePC(0x3000); // PC 초기화 추가
     }
 
     void RegisterFile::reset()

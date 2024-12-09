@@ -63,7 +63,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/LC3AssemblerSimulator.dir/DependInfo.cmake"
-  "tests/CMakeFiles/TestAssembler.dir/DependInfo.cmake"
   "tests/CMakeFiles/TestController.dir/DependInfo.cmake"
   "tests/CMakeFiles/TestEncoder.dir/DependInfo.cmake"
   "tests/CMakeFiles/TestLC3Emulator.dir/DependInfo.cmake"

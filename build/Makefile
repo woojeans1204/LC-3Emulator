@@ -129,19 +129,6 @@ LC3AssemblerSimulator/fast:
 .PHONY : LC3AssemblerSimulator/fast
 
 #=============================================================================
-# Target rules for targets named TestAssembler
-
-# Build rule for target.
-TestAssembler: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 TestAssembler
-.PHONY : TestAssembler
-
-# fast build rule for target.
-TestAssembler/fast:
-	$(MAKE) $(MAKESILENT) -f tests\CMakeFiles\TestAssembler.dir\build.make tests/CMakeFiles/TestAssembler.dir/build
-.PHONY : TestAssembler/fast
-
-#=============================================================================
 # Target rules for targets named TestController
 
 # Build rule for target.
@@ -889,7 +876,6 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... LC3AssemblerSimulator
-	@echo ... TestAssembler
 	@echo ... TestController
 	@echo ... TestEncoder
 	@echo ... TestLC3Emulator

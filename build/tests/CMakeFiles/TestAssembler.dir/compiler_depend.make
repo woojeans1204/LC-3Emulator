@@ -64,6 +64,7 @@ tests/CMakeFiles/TestAssembler.dir/TestAssembler.cpp.obj: C:/Users/awj12/OneDriv
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/predefined_ops.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/ptr_traits.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/range_access.h \
+  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/sstream.tcc \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_algobase.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_bvector.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_construct.h \
@@ -121,6 +122,7 @@ tests/CMakeFiles/TestAssembler.dir/TestAssembler.cpp.obj: C:/Users/awj12/OneDriv
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/os_defines.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/new \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ostream \
+  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/sstream \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/stdexcept \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/streambuf \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/string \
@@ -164,6 +166,8 @@ C:/Users/awj12/OneDrive/바탕\ 화면/대학교/GitHub/LC-3Emulator/include/Ass
 C:/MinGW/include/_mingw.h:
 
 C:/Users/awj12/OneDrive/바탕\ 화면/대학교/GitHub/LC-3Emulator/include/Assembler/Parser.h:
+
+C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/sstream.tcc:
 
 C:/Users/awj12/OneDrive/바탕\ 화면/대학교/GitHub/LC-3Emulator/include/Assembler/SymbolTable.h:
 
@@ -382,6 +386,8 @@ C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/os_defines.h:
 C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/new:
 
 C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ostream:
+
+C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/sstream:
 
 C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/stdexcept:
 

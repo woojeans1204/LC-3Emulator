@@ -84,7 +84,6 @@ clean: tests/clean
 # Directory level rules for directory tests
 
 # Recursive "all" directory target.
-tests/all: tests/CMakeFiles/TestAssembler.dir/all
 tests/all: tests/CMakeFiles/TestController.dir/all
 tests/all: tests/CMakeFiles/TestEncoder.dir/all
 tests/all: tests/CMakeFiles/TestLC3Emulator.dir/all
@@ -95,7 +94,6 @@ tests/all: tests/CMakeFiles/TestSymbolTable.dir/all
 .PHONY : tests/all
 
 # Recursive "codegen" directory target.
-tests/codegen: tests/CMakeFiles/TestAssembler.dir/codegen
 tests/codegen: tests/CMakeFiles/TestController.dir/codegen
 tests/codegen: tests/CMakeFiles/TestEncoder.dir/codegen
 tests/codegen: tests/CMakeFiles/TestLC3Emulator.dir/codegen
@@ -110,7 +108,6 @@ tests/preinstall:
 .PHONY : tests/preinstall
 
 # Recursive "clean" directory target.
-tests/clean: tests/CMakeFiles/TestAssembler.dir/clean
 tests/clean: tests/CMakeFiles/TestController.dir/clean
 tests/clean: tests/CMakeFiles/TestEncoder.dir/clean
 tests/clean: tests/CMakeFiles/TestLC3Emulator.dir/clean
@@ -152,44 +149,13 @@ CMakeFiles/LC3AssemblerSimulator.dir/clean:
 .PHONY : CMakeFiles/LC3AssemblerSimulator.dir/clean
 
 #=============================================================================
-# Target rules for target tests/CMakeFiles/TestAssembler.dir
-
-# All Build rule for target.
-tests/CMakeFiles/TestAssembler.dir/all: CMakeFiles/LC3AssemblerSimulator.dir/all
-	$(MAKE) $(MAKESILENT) -f tests\CMakeFiles\TestAssembler.dir\build.make tests/CMakeFiles/TestAssembler.dir/depend
-	$(MAKE) $(MAKESILENT) -f tests\CMakeFiles\TestAssembler.dir\build.make tests/CMakeFiles/TestAssembler.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\build\CMakeFiles" --progress-num=29,30 "Built target TestAssembler"
-.PHONY : tests/CMakeFiles/TestAssembler.dir/all
-
-# Build rule for subdir invocation for target.
-tests/CMakeFiles/TestAssembler.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\build\CMakeFiles" 30
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 tests/CMakeFiles/TestAssembler.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\build\CMakeFiles" 0
-.PHONY : tests/CMakeFiles/TestAssembler.dir/rule
-
-# Convenience name for target.
-TestAssembler: tests/CMakeFiles/TestAssembler.dir/rule
-.PHONY : TestAssembler
-
-# codegen rule for target.
-tests/CMakeFiles/TestAssembler.dir/codegen:
-	$(MAKE) $(MAKESILENT) -f tests\CMakeFiles\TestAssembler.dir\build.make tests/CMakeFiles/TestAssembler.dir/codegen
-.PHONY : tests/CMakeFiles/TestAssembler.dir/codegen
-
-# clean rule for target.
-tests/CMakeFiles/TestAssembler.dir/clean:
-	$(MAKE) $(MAKESILENT) -f tests\CMakeFiles\TestAssembler.dir\build.make tests/CMakeFiles/TestAssembler.dir/clean
-.PHONY : tests/CMakeFiles/TestAssembler.dir/clean
-
-#=============================================================================
 # Target rules for target tests/CMakeFiles/TestController.dir
 
 # All Build rule for target.
 tests/CMakeFiles/TestController.dir/all: CMakeFiles/LC3AssemblerSimulator.dir/all
 	$(MAKE) $(MAKESILENT) -f tests\CMakeFiles\TestController.dir\build.make tests/CMakeFiles/TestController.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests\CMakeFiles\TestController.dir\build.make tests/CMakeFiles/TestController.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\build\CMakeFiles" --progress-num=31,32 "Built target TestController"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\build\CMakeFiles" --progress-num=29,30 "Built target TestController"
 .PHONY : tests/CMakeFiles/TestController.dir/all
 
 # Build rule for subdir invocation for target.
@@ -220,7 +186,7 @@ tests/CMakeFiles/TestController.dir/clean:
 tests/CMakeFiles/TestEncoder.dir/all: CMakeFiles/LC3AssemblerSimulator.dir/all
 	$(MAKE) $(MAKESILENT) -f tests\CMakeFiles\TestEncoder.dir\build.make tests/CMakeFiles/TestEncoder.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests\CMakeFiles\TestEncoder.dir\build.make tests/CMakeFiles/TestEncoder.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\build\CMakeFiles" --progress-num=33,34 "Built target TestEncoder"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\build\CMakeFiles" --progress-num=31,32 "Built target TestEncoder"
 .PHONY : tests/CMakeFiles/TestEncoder.dir/all
 
 # Build rule for subdir invocation for target.
@@ -251,7 +217,7 @@ tests/CMakeFiles/TestEncoder.dir/clean:
 tests/CMakeFiles/TestLC3Emulator.dir/all: CMakeFiles/LC3AssemblerSimulator.dir/all
 	$(MAKE) $(MAKESILENT) -f tests\CMakeFiles\TestLC3Emulator.dir\build.make tests/CMakeFiles/TestLC3Emulator.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests\CMakeFiles\TestLC3Emulator.dir\build.make tests/CMakeFiles/TestLC3Emulator.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\build\CMakeFiles" --progress-num=35,36 "Built target TestLC3Emulator"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\build\CMakeFiles" --progress-num=33,34 "Built target TestLC3Emulator"
 .PHONY : tests/CMakeFiles/TestLC3Emulator.dir/all
 
 # Build rule for subdir invocation for target.
@@ -282,7 +248,7 @@ tests/CMakeFiles/TestLC3Emulator.dir/clean:
 tests/CMakeFiles/TestMemory.dir/all: CMakeFiles/LC3AssemblerSimulator.dir/all
 	$(MAKE) $(MAKESILENT) -f tests\CMakeFiles\TestMemory.dir\build.make tests/CMakeFiles/TestMemory.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests\CMakeFiles\TestMemory.dir\build.make tests/CMakeFiles/TestMemory.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\build\CMakeFiles" --progress-num=37,38 "Built target TestMemory"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\build\CMakeFiles" --progress-num=35,36 "Built target TestMemory"
 .PHONY : tests/CMakeFiles/TestMemory.dir/all
 
 # Build rule for subdir invocation for target.
@@ -313,7 +279,7 @@ tests/CMakeFiles/TestMemory.dir/clean:
 tests/CMakeFiles/TestParser.dir/all: CMakeFiles/LC3AssemblerSimulator.dir/all
 	$(MAKE) $(MAKESILENT) -f tests\CMakeFiles\TestParser.dir\build.make tests/CMakeFiles/TestParser.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests\CMakeFiles\TestParser.dir\build.make tests/CMakeFiles/TestParser.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\build\CMakeFiles" --progress-num=39,40 "Built target TestParser"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\build\CMakeFiles" --progress-num=37,38 "Built target TestParser"
 .PHONY : tests/CMakeFiles/TestParser.dir/all
 
 # Build rule for subdir invocation for target.
@@ -344,7 +310,7 @@ tests/CMakeFiles/TestParser.dir/clean:
 tests/CMakeFiles/TestRegisterFile.dir/all: CMakeFiles/LC3AssemblerSimulator.dir/all
 	$(MAKE) $(MAKESILENT) -f tests\CMakeFiles\TestRegisterFile.dir\build.make tests/CMakeFiles/TestRegisterFile.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests\CMakeFiles\TestRegisterFile.dir\build.make tests/CMakeFiles/TestRegisterFile.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\build\CMakeFiles" --progress-num=41,42 "Built target TestRegisterFile"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\build\CMakeFiles" --progress-num=39,40 "Built target TestRegisterFile"
 .PHONY : tests/CMakeFiles/TestRegisterFile.dir/all
 
 # Build rule for subdir invocation for target.
@@ -375,7 +341,7 @@ tests/CMakeFiles/TestRegisterFile.dir/clean:
 tests/CMakeFiles/TestSymbolTable.dir/all: CMakeFiles/LC3AssemblerSimulator.dir/all
 	$(MAKE) $(MAKESILENT) -f tests\CMakeFiles\TestSymbolTable.dir\build.make tests/CMakeFiles/TestSymbolTable.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests\CMakeFiles\TestSymbolTable.dir\build.make tests/CMakeFiles/TestSymbolTable.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\build\CMakeFiles" --progress-num=43,44 "Built target TestSymbolTable"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\LC-3Emulator\build\CMakeFiles" --progress-num=41,42 "Built target TestSymbolTable"
 .PHONY : tests/CMakeFiles/TestSymbolTable.dir/all
 
 # Build rule for subdir invocation for target.

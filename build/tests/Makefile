@@ -116,20 +116,6 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-tests/CMakeFiles/TestAssembler.dir/rule:
-	cd /d C:\Users\awj12\OneDrive\1411~1\1038~1\GitHub\LC-3EM~1\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 tests/CMakeFiles/TestAssembler.dir/rule
-.PHONY : tests/CMakeFiles/TestAssembler.dir/rule
-
-# Convenience name for target.
-TestAssembler: tests/CMakeFiles/TestAssembler.dir/rule
-.PHONY : TestAssembler
-
-# fast build rule for target.
-TestAssembler/fast:
-	cd /d C:\Users\awj12\OneDrive\1411~1\1038~1\GitHub\LC-3EM~1\build && $(MAKE) $(MAKESILENT) -f tests\CMakeFiles\TestAssembler.dir\build.make tests/CMakeFiles/TestAssembler.dir/build
-.PHONY : TestAssembler/fast
-
-# Convenience name for target.
 tests/CMakeFiles/TestController.dir/rule:
 	cd /d C:\Users\awj12\OneDrive\1411~1\1038~1\GitHub\LC-3EM~1\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 tests/CMakeFiles/TestController.dir/rule
 .PHONY : tests/CMakeFiles/TestController.dir/rule
@@ -226,30 +212,6 @@ TestSymbolTable: tests/CMakeFiles/TestSymbolTable.dir/rule
 TestSymbolTable/fast:
 	cd /d C:\Users\awj12\OneDrive\1411~1\1038~1\GitHub\LC-3EM~1\build && $(MAKE) $(MAKESILENT) -f tests\CMakeFiles\TestSymbolTable.dir\build.make tests/CMakeFiles/TestSymbolTable.dir/build
 .PHONY : TestSymbolTable/fast
-
-TestAssembler.obj: TestAssembler.cpp.obj
-.PHONY : TestAssembler.obj
-
-# target to build an object file
-TestAssembler.cpp.obj:
-	cd /d C:\Users\awj12\OneDrive\1411~1\1038~1\GitHub\LC-3EM~1\build && $(MAKE) $(MAKESILENT) -f tests\CMakeFiles\TestAssembler.dir\build.make tests/CMakeFiles/TestAssembler.dir/TestAssembler.cpp.obj
-.PHONY : TestAssembler.cpp.obj
-
-TestAssembler.i: TestAssembler.cpp.i
-.PHONY : TestAssembler.i
-
-# target to preprocess a source file
-TestAssembler.cpp.i:
-	cd /d C:\Users\awj12\OneDrive\1411~1\1038~1\GitHub\LC-3EM~1\build && $(MAKE) $(MAKESILENT) -f tests\CMakeFiles\TestAssembler.dir\build.make tests/CMakeFiles/TestAssembler.dir/TestAssembler.cpp.i
-.PHONY : TestAssembler.cpp.i
-
-TestAssembler.s: TestAssembler.cpp.s
-.PHONY : TestAssembler.s
-
-# target to generate assembly for a file
-TestAssembler.cpp.s:
-	cd /d C:\Users\awj12\OneDrive\1411~1\1038~1\GitHub\LC-3EM~1\build && $(MAKE) $(MAKESILENT) -f tests\CMakeFiles\TestAssembler.dir\build.make tests/CMakeFiles/TestAssembler.dir/TestAssembler.cpp.s
-.PHONY : TestAssembler.cpp.s
 
 TestController.obj: TestController.cpp.obj
 .PHONY : TestController.obj
@@ -427,7 +389,6 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... TestAssembler
 	@echo ... TestController
 	@echo ... TestEncoder
 	@echo ... TestLC3Emulator
@@ -435,9 +396,6 @@ help:
 	@echo ... TestParser
 	@echo ... TestRegisterFile
 	@echo ... TestSymbolTable
-	@echo ... TestAssembler.obj
-	@echo ... TestAssembler.i
-	@echo ... TestAssembler.s
 	@echo ... TestController.obj
 	@echo ... TestController.i
 	@echo ... TestController.s

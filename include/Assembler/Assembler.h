@@ -22,13 +22,13 @@ namespace Assembler
         void firstPass(const std::string &inputFilePath);
         void secondPass(const std::string &outputFilePath);
         void reset();
+        int parseImmediate(const std::string &operand, int bitCount, bool isSigned = true);
 
     private:
         Parser parser;
         SymbolTable symTable;
         InstructionSet instrSet;
 
-        int parseImmediate(const std::string &operand, int bitCount, bool isSigned = true);
         int computePCOffset(int currentAddress, const std::string &label, int bitCount);
     };
 

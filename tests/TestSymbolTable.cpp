@@ -1,71 +1,108 @@
-// tests/TestSymbolTable.cpp
-
-// 테스트내용
-// 라벨 추가: 새로운 라벨을 심볼 테이블에 추가할 수 있는지 테스트합니다.
-// 중복 라벨 처리: 이미 존재하는 라벨을 다시 추가하려고 할 때 올바르게 처리되는지 테스트합니다.
-// 라벨 존재 확인: 특정 라벨이 심볼 테이블에 존재하는지 확인할 수 있는지 테스트합니다.
-// 주소 조회: 특정 라벨에 매핑된 주소를 올바르게 반환하는지 테스트합니다.
-// 예외 처리: 존재하지 않는 라벨의 주소를 조회할 때 예외가 발생하는지 테스트합니다.
-
 #include <iostream>
 #include <cassert>
 #include "Assembler/SymbolTable.h"
 
 using namespace Assembler;
 
-void testAddLabel()
-{
-    SymbolTable symTable;
-    bool added = symTable.addLabel("LOOP", 0x3000);
-    assert(added && "Failed to add a new label.");
-    added = symTable.addLabel("LOOP", 0x3001);
-    assert(!added && "Duplicate label was added.");
-    std::cout << "testAddLabel passed.\n";
-}
+/**
+ * SymbolTable 클래스의 단위 테스트
+ * 테스트 항목:
+ * 1. 라벨 추가 및 중복 처리 테스트
+ * 2. 라벨 존재 여부 확인 테스트
+ * 3. 주소값 조회 테스트
+ * 4. 예외 상황 처리 테스트
+ * 5. 테이블 초기화 테스트
+ * 6. 다중 라벨 관리 테스트
+ */
 
-void testContains()
+namespace SymbolTableTest
 {
-    SymbolTable symTable;
-    symTable.addLabel("START", 0x3000);
-    assert(symTable.contains("START") && "SymbolTable should contain 'START'.");
-    assert(!symTable.contains("END") && "SymbolTable should not contain 'END'.");
-    std::cout << "testContains passed.\n";
-}
-
-void testGetAddress()
-{
-    SymbolTable symTable;
-    symTable.addLabel("INIT", 0x3000);
-    symTable.addLabel("END", 0x3001);
-    int address = symTable.getAddress("INIT");
-    assert(address == 0x3000 && "Incorrect address for 'INIT'.");
-    address = symTable.getAddress("END");
-    assert(address == 0x3001 && "Incorrect address for 'END'.");
-    std::cout << "testGetAddress passed.\n";
-}
-
-void testGetAddressException()
-{
-    SymbolTable symTable;
-    symTable.addLabel("START", 0x3000);
-    try
+    void testAddLabel()
     {
-        symTable.getAddress("MIDDLE");
-        assert(false && "Expected exception for non-existent label.");
+        SymbolTable symTable;
+        bool added = symTable.addLabel("LOOP", 0x3000);
+        assert(added && "라벨 추가 실패");
+
+        added = symTable.addLabel("LOOP", 0x3001);
+        assert(!added && "중복 라벨 추가됨");
+        std::cout << "라벨 추가 테스트 통과\n";
     }
-    catch (const std::invalid_argument &e)
+
+    void testContains()
     {
-        std::cout << "testGetAddressException passed.\n";
+        SymbolTable symTable;
+        symTable.addLabel("START", 0x3000);
+        assert(symTable.contains("START") && "START 라벨이 없음");
+        assert(!symTable.contains("END") && "존재하지 않는 END 라벨이 있음");
+        std::cout << "라벨 존재 확인 테스트 통과\n";
+    }
+
+    void testGetAddress()
+    {
+        SymbolTable symTable;
+        symTable.addLabel("INIT", 0x3000);
+        symTable.addLabel("END", 0x3001);
+        int address = symTable.getAddress("INIT");
+        assert(address == 0x3000 && "INIT 라벨의 주소가 올바르지 않음");
+        address = symTable.getAddress("END");
+        assert(address == 0x3001 && "END 라벨의 주소가 올바르지 않음");
+        std::cout << "주소값 조회 테스트 통과\n";
+    }
+
+    void testGetAddressException()
+    {
+        SymbolTable symTable;
+        symTable.addLabel("START", 0x3000);
+        try
+        {
+            symTable.getAddress("MIDDLE");
+            assert(false && "존재하지 않는 라벨에 대한 예외가 발생해야 함");
+        }
+        catch (const std::invalid_argument &e)
+        {
+            std::cout << "예외 상황 처리 테스트 통과\n";
+        }
+    }
+
+    void testResetTable()
+    {
+        SymbolTable symTable;
+        symTable.addLabel("TEST", 0x3000);
+        assert(symTable.contains("TEST") && "리셋 전 라벨이 존재해야 함");
+
+        symTable.reset();
+        assert(!symTable.contains("TEST") && "리셋 후 라벨이 존재하지 않아야 함");
+        std::cout << "테이블 초기화 테스트 통과\n";
+    }
+
+    void testMultipleLabels()
+    {
+        SymbolTable symTable;
+        symTable.addLabel("START", 0x3000);
+        symTable.addLabel("MIDDLE", 0x3005);
+        symTable.addLabel("END", 0x300A);
+
+        assert(symTable.getAddress("START") == 0x3000 && "START 라벨의 주소가 올바르지 않음");
+        assert(symTable.getAddress("MIDDLE") == 0x3005 && "MIDDLE 라벨의 주소가 올바르지 않음");
+        assert(symTable.getAddress("END") == 0x300A && "END 라벨의 주소가 올바르지 않음");
+        std::cout << "다중 라벨 관리 테스트 통과\n";
+    }
+
+    void runAllTests()
+    {
+        std::cout << "SymbolTable 단위 테스트 시작...\n";
+        testAddLabel();
+        testContains();
+        testGetAddress();
+        testGetAddressException();
+        testResetTable();
+        testMultipleLabels();
+        std::cout << "모든 SymbolTable 테스트 통과!\n";
     }
 }
 
 int main()
 {
-    std::cout << "Running SymbolTable Tests...\n";
-    testAddLabel();
-    testContains();
-    testGetAddress();
-    testGetAddressException();
-    std::cout << "All SymbolTable Tests Passed!\n";
+    SymbolTableTest::runAllTests();
     return 0;
 }
